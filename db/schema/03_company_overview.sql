@@ -1,5 +1,6 @@
--- Create template table for company overview data
+-- Drop & Create Template Table For Company Overview Data
 
+DROP TABLE IF EXISTS company_overview_template CASCADE;
 CREATE TABLE company_overview_template (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,

@@ -1,5 +1,6 @@
--- Create template table for balance sheet data
+-- Drop & Create Template Table For Balance Sheet Data
 
+DROP TABLE IF EXISTS balance_sheet_template CASCADE;
 CREATE TABLE balance_sheet_template (
   id SERIAL PRIMARY KEY NOT NULL,
   ticker VARCHAR(255) NOT NULL,

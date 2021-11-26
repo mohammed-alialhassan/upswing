@@ -1,5 +1,6 @@
--- Create template table for stock time series data
+-- Drop & Create Template Table For Stock Time Series Data
 
+DROP TABLE IF EXISTS stock_time_series_template CASCADE;
 CREATE TABLE stock_time_series_template (
   id SERIAL PRIMARY KEY NOT NULL,
   ticker VARCHAR(255) NOT NULL,

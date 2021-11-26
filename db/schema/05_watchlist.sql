@@ -1,4 +1,4 @@
--- Drop & create watchlist table
+-- Drop & Create Watchlist Table
 
 DROP TABLE IF EXISTS watchlist CASCADE;
 CREATE TABLE watchlist (
