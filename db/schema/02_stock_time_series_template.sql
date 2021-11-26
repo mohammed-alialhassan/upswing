@@ -13,5 +13,3 @@ CREATE TABLE stock_time_series_template (
   dividend_amount VARCHAR(255) NOT NULL,
   split_coefficient VARCHAR(255) NOT NULL
 );
-
-
