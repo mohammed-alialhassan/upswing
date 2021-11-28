@@ -3,7 +3,6 @@
 DROP TABLE IF EXISTS balance_sheet_template CASCADE;
 CREATE TABLE balance_sheet_template (
   id SERIAL PRIMARY KEY NOT NULL,
-  ticker VARCHAR(255) NOT NULL,
   fiscal_date_ending VARCHAR(255) NOT NULL,
   reported_currency VARCHAR(255) NOT NULL,
   total_assets VARCHAR(255) NOT NULL,
