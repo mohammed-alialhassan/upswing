@@ -31,9 +31,9 @@ app.use('/screener', screenerRoute);
 
 /// API Routes
 
-// // Users API Route
-// const usersRoute = require('../routes/api/users');
-// app.use('/api/users', usersRoute);
+// Users API Route
+const usersRoute = require('../routes/api/users');
+app.use('/api/users', usersRoute);
 
 // // Stock Data Collector API Route
 const dataCollectorRoute = require('../routes/api/dataCollector');
