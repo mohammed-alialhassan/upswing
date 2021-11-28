@@ -11,7 +11,7 @@
     "db:reset": "node bin/resetdb.js"
   },
   "keywords": [],
-  "author": "Xavier Martin Demers, Mohammed Ali Al-Hassan, Amobi Gordon Maka",
+  "authors": "Xavier Martin Demers, Mohammed Ali Al-Hassan, Amobi Gordon Maka",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
