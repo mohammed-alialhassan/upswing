@@ -1,16 +1,12 @@
 require('dotenv').config();
 const fs     = require('fs');
 const Client = require('pg-native');
+const { dbParams } = require('../db/params/dbParams');
 
-const DB_HOST = process.env.DB_HOST;
-const DB_USER = process.env.DB_USER;
-const DB_PASS = process.env.DB_PASS;
-const DB_NAME = process.env.DB_NAME;
-const DB_PORT = process.env.DB_PORT;
-const client = new Client();
+const client  = new Client();
 
 // PG Connection Setup
-const connectionString = `postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable`;
+const connectionString = `postgresql://${dbParams.user}:${dbParams.password}@${dbParams.host}:${dbParams.port}/${dbParams.database}?sslmode=disable`;
 
 // Load Schema Files From db/schema
 const runSchemaFiles = function() {

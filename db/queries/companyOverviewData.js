@@ -1,12 +1,8 @@
 require('dotenv').config();
-const { Pool } = require("pg");
+const { Pool }     = require("pg");
+const { dbParams } = require("../params/dbParams");
 
-const pool = new Pool({
-  user: "labber",
-  password: "labber",
-  host: "localhost",
-  database: "upswing",
-});
+const pool = new Pool(dbParams);
 
 /**
  * Create A Company Overview Table For A Stock
