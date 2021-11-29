@@ -9,9 +9,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 /// Pages
 
-// Home Page
-const homeRoute = require('../routes/pages/home');
-app.use('/', homeRoute);
+// Landing Page
+const landingRoute = require('../routes/pages/landing');
+app.use('/', landingRoute);
+
+// // Dashboard Page
+// const dashboardRoute = require('../routes/pages/dashboard');
+// app.use('/', dashboardRoute);
 
 // About Page
 const aboutRoute = require('../routes/pages/about');
@@ -23,35 +27,31 @@ app.use('/screener', screenerRoute);
 
 /// API Routes
 
-// // Users API Route
+// Users API Route
 // const usersRoute = require('../routes/api/users');
 // app.use('/api/users', usersRoute);
 
-// Daily Time Series API Route
-const tsDataRoute = require('../routes/api/tsData');
-app.use('/api/ts-data', tsDataRoute);
-
-// // Company Overview API Route
-// const companyOverviewRoute = require('../routes/api/companyOverview');
-// app.use('/api/company-overview', companyOverviewRoute);
-
-// // Balance Sheet API Route
-// const balanceSheetRoute = require('../routes/api/balanceSheet');
-// app.use('/api/balance-sheet', balanceSheetRoute);
+// Stock Data API Route
+const stockDataRoute = require('../routes/api/stockData');
+app.use('/api/stock-data', stockDataRoute);
 
 /// Tasks
 
 // Stock Data Collector Route
-const dataCollectorRoute = require('../routes/tasks/dataCollector');
-app.use('/api/data-collector', dataCollectorRoute);
+const stockDataCollectorRoute = require('../routes/tasks/stockDataCollector');
+app.use('/stock-data-collector', stockDataCollectorRoute);
 
-// // Register Page
-// const registerRoute = require('../routes/tasks/register');
-// app.use('/register', registerRoute);
+// Register Route
+const registerRoute = require('../routes/tasks/register');
+app.use('/register', registerRoute);
 
-// // Login Page
+// // Login Route
 // const loginRoute = require('../routes/tasks/login');
 // app.use('/login', loginRoute);
+
+// // Logout Route
+// const logoutRoute = require('../routes/tasks/logout');
+// app.use('/logout', logoutRoute);
 
 /// Server Listener
 

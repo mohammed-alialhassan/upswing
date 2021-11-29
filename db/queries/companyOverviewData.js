@@ -15,14 +15,14 @@ exports.createCompanyOverview = function(ticker) {
       DROP TABLE IF EXISTS ${ticker}_company_overview CASCADE;
       CREATE TABLE ${ticker}_company_overview
       (
-          id SERIAL PRIMARY KEY NOT NULL,
-          name VARCHAR(255) NOT NULL,
-          exchange VARCHAR(255) NOT NULL,
-          country VARCHAR(255) NOT NULL,
-          currency VARCHAR(255) NOT NULL,
-          sector VARCHAR(255) NOT NULL,
-          description TEXT NOT NULL
-       );
+        id SERIAL PRIMARY KEY NOT NULL,
+        name VARCHAR(255) NOT NULL,
+        exchange VARCHAR(255) NOT NULL,
+        country VARCHAR(255) NOT NULL,
+        currency VARCHAR(255) NOT NULL,
+        sector VARCHAR(255) NOT NULL,
+        description TEXT NOT NULL
+      );
       `
     );
 };

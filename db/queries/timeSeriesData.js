@@ -25,7 +25,7 @@ exports.createTsDaily = function(ticker) {
         close VARCHAR(255) NOT NULL,
         adjusted_close VARCHAR(255) NOT NULL,
         volume VARCHAR(255) NOT NULL
-       );
+      );
       `
     );
 };
@@ -83,7 +83,7 @@ exports.createTsWeekly = function(ticker) {
         close VARCHAR(255) NOT NULL,
         adjusted_close VARCHAR(255) NOT NULL,
         volume VARCHAR(255) NOT NULL
-       );
+      );
       `
     );
 };
@@ -141,7 +141,7 @@ exports.createTsMonthly = function(ticker) {
         close VARCHAR(255) NOT NULL,
         adjusted_close VARCHAR(255) NOT NULL,
         volume VARCHAR(255) NOT NULL
-       );
+      );
       `
     );
 };

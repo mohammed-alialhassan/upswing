@@ -3,7 +3,7 @@ const router       = express();
 const { Pool }     = require('pg');
 const { dbParams } = require('../../db/params/dbParams');
 
-const pool   = new Pool(dbParams);
+const pool = new Pool(dbParams);
 
 router.get(`/`, (req, res) => {
   const ticker = 'IBM';
@@ -25,7 +25,7 @@ router.get(`/`, (req, res) => {
       res.json({ tsTickerData });
     })
     .catch((err) => {
-      res.status(500).send({ error: err.message });
+      console.log(err.message);
     });
   return router;
 });
