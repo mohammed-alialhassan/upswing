@@ -1,7 +1,7 @@
 const express      = require('express');
 const router       = express();
-const { Pool }     = require("pg");
-const { dbParams } = require("../../db/params/dbParams");
+const { Pool }     = require('pg');
+const { dbParams } = require('../../db/params/dbParams');
 
 const pool = new Pool(dbParams);
 
