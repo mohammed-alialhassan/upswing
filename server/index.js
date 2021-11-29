@@ -13,9 +13,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 const landingRoute = require('../routes/pages/landing');
 app.use('/', landingRoute);
 
-// // Dashboard Page
-// const dashboardRoute = require('../routes/pages/dashboard');
-// app.use('/', dashboardRoute);
+// Dashboard Page
+const dashboardRoute = require('../routes/pages/dashboard');
+app.use('/dashboard', dashboardRoute);
 
 // About Page
 const aboutRoute = require('../routes/pages/about');
