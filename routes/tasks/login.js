@@ -6,27 +6,24 @@ const { dbParams } = require('../../db/params/dbParams');
 const pool = new Pool(dbParams);
 
 router.post('/', (req, res) => {
-  let username = req.body.username;
+  let email = req.body.email;
   let password = req.body.password;
 
-  pool
+  return pool
     .query(
       `
       SELECT *
       FROM users
-      WHERE username = $1 AND password = $2
-      `,
-      [username, password]
+      WHERE email = $1
+      `, [email]
     )
-    .then((results) => {
-      if (results) {
-        res.send(results);
+    .then((result) => {
+      const loggedPass = result.rows[0].password;
+      if (password === loggedPass) {
+        res.send(result.rows[0]);
       } else {
-        res.send({message: 'Incorrect username or password, please try again'});
+        res.send({message: "A user with this password does not exist, please try again"});
       }
-    })
-    .then(() => {
-      res.redirect('/dashboard');
     })
     .catch((err) => {
       console.log(err.message);

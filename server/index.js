@@ -50,9 +50,9 @@ app.use('/stock-data-collector', stockDataCollectorRoute);
 const registerRoute = require('../routes/tasks/register');
 app.use('/register', registerRoute);
 
-// // Login Route
-// const loginRoute = require('../routes/tasks/login');
-// app.use('/login', loginRoute);
+// Login Route
+const loginRoute = require('../routes/tasks/login');
+app.use('/login', loginRoute);
 
 // // Logout Route
 // const logoutRoute = require('../routes/tasks/logout');

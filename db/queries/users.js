@@ -11,9 +11,6 @@ const pool = new Pool(dbParams);
  * @returns Newly Created User
  */
 exports.addUser = function(body) {
-  const password = body.password;
-  const hashedPassword = bcrypt.hashSync(password, 8);
-
   return pool
     .query(
       `
@@ -26,7 +23,7 @@ exports.addUser = function(body) {
         body.lastName,
         body.username,
         body.email,
-        hashedPassword
+        body.password
       ]
     )
     .then((result) => {
@@ -34,46 +31,5 @@ exports.addUser = function(body) {
     })
     .catch((err) => {
       console.log("addUser error = " + err.message);
-    });
-};
-
-/**
- * Get a user by their email address
- * @param {*} email
- * @returns found user or undefined
- */
-exports.getUserWithEmail = function(email) {
-  return pool
-    .query(
-      `
-      SELECT *
-      FROM users
-      WHERE email = $1
-      `, [email]
-    )
-    .then((result) => {
-      return result.rows[0];
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-};
-
-/**
- * Get a user by their username
- * @param {*} username
- * @returns found user or undefined
- */
-exports.getUserWithUsername = function(username) {
-  return pool.query(`
-    SELECT *
-    FROM users
-    WHERE username = $1
-  `, [username])
-    .then((result) => {
-      return result.rows[0];
-    })
-    .catch((err) => {
-      console.log(err.message);
     });
 };
