@@ -28,8 +28,8 @@ app.use('/screener', screenerRoute);
 /// API Routes
 
 // Users API Route
-// const usersRoute = require('../routes/api/users');
-// app.use('/api/users', usersRoute);
+const usersRoute = require('../routes/api/users');
+app.use('/api/users', usersRoute);
 
 // Stock Data API Route
 const stockDataRoute = require('../routes/api/stockData');

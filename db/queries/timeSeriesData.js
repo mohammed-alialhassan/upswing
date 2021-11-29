@@ -4,7 +4,7 @@ const { dbParams } = require("../params/dbParams");
 
 const pool = new Pool(dbParams);
 
-/// Daily Queries
+/// Daily TS Data Schema/Seed
 
 /**
  * Create Daily Adjusted Timeseries Table For A Stock
@@ -62,7 +62,7 @@ exports.addTsDaily = function(ticker, date, open, high, low, close, adjustedClos
     });
 };
 
-/// Weekly Queries
+/// Weekly TS Data Schema/Seed
 
 /**
  * Create Weekly Adjusted Timeseries Table For A Stock
@@ -120,7 +120,7 @@ exports.addTsWeekly = function(ticker, date, open, high, low, close, adjustedClo
     });
 };
 
-/// Monthly Queries
+/// Monthly TS Data Schema/Seed
 
 /**
  * Create Monthly Adjusted Timeseries Table For A Stock
