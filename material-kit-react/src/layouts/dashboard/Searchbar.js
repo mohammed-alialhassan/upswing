@@ -57,21 +57,33 @@ export default function Searchbar() {
     setOpen(false);
   };
 
+
+
+
   const formik = useFormik({
     initialValues: {
       ticker: ''
     },
     onSubmit: () => {
-    axios.post('http://localhost:8081/stock-data-collector', {
-      ticker
-    }).then((res) => {
-      console.log("RESPONSE", res)
-    }).catch((err) => {
-      console.log("ERROR", err)
-    })
-    
+      axios.post('http://localhost:8081/stock-data-collector', {
+        ticker
+      }).then(() => {
+        setTimeout(() => {
+          axios.post('http://localhost:8081/api/stock-data', {
+            ticker
+          }).then((res) => {
+            console.log(res);
+          }).catch((err) => {
+            console.log("ERROR", err);
+          });
+        }, 5000);
+      }).catch((err) => {
+        console.log("ERROR", err);
+      });
+      // navigate('/dashboard/stocks', { replace: true });
     }
-  })
+  });
+
 
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
 
