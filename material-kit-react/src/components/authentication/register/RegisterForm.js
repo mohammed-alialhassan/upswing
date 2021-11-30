@@ -5,15 +5,18 @@ import { useFormik, Form, FormikProvider } from 'formik';
 import eyeFill from '@iconify/icons-eva/eye-fill';
 import eyeOffFill from '@iconify/icons-eva/eye-off-fill';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 // material
 import { Stack, TextField, IconButton, InputAdornment } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import { values } from 'lodash';
 
 // ----------------------------------------------------------------------
 
 export default function RegisterForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+
 
   const RegisterSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -35,10 +38,22 @@ export default function RegisterForm() {
       password: ''
     },
     validationSchema: RegisterSchema,
-    onSubmit: () => {
-      navigate('/dashboard', { replace: true });
+    onSubmit: values => {
+      console.log('Form Data', values)
+      axios.post("http://localhost:8081/register", {
+        first_name: values.firstName,
+        last_name: values.lastName,
+        username: values.username,
+        email: values.email,
+        password: values.password
+      })
+      
+      navigate('/dashboard/watchlist', { replace: true });
     }
   });
+
+
+
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 

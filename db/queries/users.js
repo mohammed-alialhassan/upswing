@@ -10,7 +10,7 @@ const pool = new Pool(dbParams);
  * @param {*} user
  * @returns Newly Created User
  */
-exports.addUser = function(body) {
+exports.addUser = function(values) {
   return pool
     .query(
       `
@@ -19,11 +19,11 @@ exports.addUser = function(body) {
       RETURNING *;
       `,
       [
-        body.firstName,
-        body.lastName,
-        body.username,
-        body.email,
-        body.password
+        values.first_name,
+        values.last_name,
+        values.username,
+        values.email,
+        values.password
       ]
     )
     .then((result) => {
