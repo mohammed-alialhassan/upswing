@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
 import { styled } from '@mui/material/styles';
@@ -11,8 +11,8 @@ import NavSection from '../../components/NavSection';
 import { MHidden } from '../../components/@material-extend';
 //
 import sidebarConfig from './SidebarConfig';
-import account from '../../_mocks_/account';
-
+// import account from '../../_mocks_/account';
+import GlobalState from '../../components/GlobalState';
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;
@@ -41,6 +41,16 @@ DashboardSidebar.propTypes = {
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useLocation();
+
+  const [login, setLogin] = useContext(GlobalState);
+
+
+  // Account Config
+  const account = {
+    displayName: login.username,
+    email: login.email,
+    photoURL: '/static/mock-images/avatars/avatar_default.jpg'
+  };
 
   useEffect(() => {
     if (isOpenSidebar) {

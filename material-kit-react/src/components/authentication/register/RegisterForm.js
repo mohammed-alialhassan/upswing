@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Icon } from '@iconify/react';
 import { useFormik, Form, FormikProvider } from 'formik';
 import eyeFill from '@iconify/icons-eva/eye-fill';
@@ -10,6 +10,7 @@ import axios from 'axios';
 import { Stack, TextField, IconButton, InputAdornment } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { values } from 'lodash';
+import GlobalState from '../../GlobalState';
 
 // ----------------------------------------------------------------------
 
@@ -17,6 +18,8 @@ export default function RegisterForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
+  // Global State
+  const [login, setLogin] = useContext(GlobalState);
 
   const RegisterSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -47,13 +50,17 @@ export default function RegisterForm() {
         email: values.email,
         password: values.password
       })
-
+// **************** SET LOGIN STATE ****************************
+      setLogin(login => ({...login,
+        username: values.username,
+        email: values.email,
+        password: values.password
+      }))
       navigate('/dashboard/watchlist', { replace: true });
     }
   });
 
-  // **************** SET LOGIN STATE ****************************
-
+  console.log('state', login);
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
