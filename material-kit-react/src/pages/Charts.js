@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Box, Grid, Container, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
-import LineChartDaily from '../components/_stocks/LineChartDaily';
+import LineChartMonthly from '../components/_charts/LineChartMonthly';
 
 
 
@@ -13,8 +13,8 @@ export default function Stocks() {
     <Page title="Upswing | Charts">
       <Container maxWidth="xl">
         <Box sx={{ pb: 5 }}>
-          <Typography variant="h4">heh</Typography>
-          <LineChartDaily />
+          <Typography variant="h4">Daily Weekly Monthly Options</Typography>
+          <LineChartMonthly />
         </Box>
       </Container>
     </Page>

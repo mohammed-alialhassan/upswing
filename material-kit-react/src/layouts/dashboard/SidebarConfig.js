@@ -16,7 +16,7 @@ const sidebarConfig = [
     icon: getIcon(fileTextFill)
   },
   {
-    title: 'Stocks',
+    title: 'Charts',
     path: '/dashboard/stocks',
     icon: getIcon(pieChart2Fill)
   },
