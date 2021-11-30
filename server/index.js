@@ -54,10 +54,6 @@ app.use('/register', registerRoute);
 const loginRoute = require('../routes/tasks/login');
 app.use('/login', loginRoute);
 
-// // Logout Route
-// const logoutRoute = require('../routes/tasks/logout');
-// app.use('/logout', logoutRoute);
-
 /// Server Listener
 
 app.listen(PORT, () => {
