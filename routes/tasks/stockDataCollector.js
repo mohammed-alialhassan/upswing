@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { externalDataFetcher } = require("../../lib/externalDataFetcher");
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
   externalDataFetcher(req.body.ticker);
 });
 

@@ -61,14 +61,15 @@ export default function Searchbar() {
     initialValues: {
       ticker: ''
     },
-    onSubmit: values => {
+    onSubmit: () => {
     axios.post('http://localhost:8081/stock-data-collector', {
       ticker
     }).then((res) => {
-      console.log(res)
+      console.log("RESPONSE", res)
     }).catch((err) => {
-      console.log(err)
+      console.log("ERROR", err)
     })
+    
     }
   })
 
@@ -94,6 +95,7 @@ export default function Searchbar() {
 
               label="Search"
               placeholder="Search…"
+
               value={ticker}
               onInput={e => setTicker(e.target.value)}
 
