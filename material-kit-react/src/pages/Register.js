@@ -64,7 +64,7 @@ export default function Register() {
             Get Your Account With Upswing Started Today!
             </Typography>
             <Typography sx={{ color: 'text.secondary' }}>
-              Free forever. No credit card needed.
+              Join us to make understanding the stock market easy for all!
             </Typography>
           </Box>
 
@@ -73,7 +73,7 @@ export default function Register() {
           <RegisterForm />
 
           <Typography variant="body2" align="center" sx={{ color: 'text.secondary', mt: 3 }}>
-            By registering, I agree to Minimal&nbsp;
+            By registering, I agree to Upswing&nbsp;
             <Link underline="always" sx={{ color: 'text.primary' }}>
               Terms of Service
             </Link>

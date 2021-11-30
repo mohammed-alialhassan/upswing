@@ -1,8 +1,11 @@
 import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import searchFill from '@iconify/icons-eva/search-fill';
+import { useFormik, Form, FormikProvider } from 'formik';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 // material
 import { styled, alpha } from '@mui/material/styles';
+import axios from 'axios';
 import {
   Box,
   Input,
@@ -42,6 +45,9 @@ const SearchbarStyle = styled('div')(({ theme }) => ({
 
 export default function Searchbar() {
   const [isOpen, setOpen] = useState(false);
+  const [ticker, setTicker] = useState('');
+  const navigate = useNavigate();
+
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
@@ -51,8 +57,40 @@ export default function Searchbar() {
     setOpen(false);
   };
 
+
+
+
+  const formik = useFormik({
+    initialValues: {
+      ticker: ''
+    },
+    onSubmit: () => {
+      axios.post('http://localhost:8081/stock-data-collector', {
+        ticker
+      }).then(() => {
+        setTimeout(() => {
+          axios.post('http://localhost:8081/api/stock-data', {
+            ticker
+          }).then((res) => {
+            console.log(res);
+          }).catch((err) => {
+            console.log("ERROR", err);
+          });
+        }, 5000);
+      }).catch((err) => {
+        console.log("ERROR", err);
+      });
+      // navigate('/dashboard/stocks', { replace: true });
+    }
+  });
+
+
+  const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
+
   return (
+    <FormikProvider value={formik}>
     <ClickAwayListener onClickAway={handleClose}>
+    <form noValidate onSubmit={handleSubmit}>
       <div>
         {!isOpen && (
           <IconButton onClick={handleOpen}>
@@ -66,7 +104,13 @@ export default function Searchbar() {
               autoFocus
               fullWidth
               disableUnderline
+
+              label="Search"
               placeholder="Search…"
+
+              value={ticker}
+              onInput={e => setTicker(e.target.value)}
+
               startAdornment={
                 <InputAdornment position="start">
                   <Box
@@ -78,12 +122,14 @@ export default function Searchbar() {
               }
               sx={{ mr: 1, fontWeight: 'fontWeightBold' }}
             />
-            <Button variant="contained" onClick={handleClose}>
+            <Button variant="contained" onClick={handleSubmit}>
               Search
             </Button>
           </SearchbarStyle>
         </Slide>
       </div>
+    </form>
     </ClickAwayListener>
+    </FormikProvider>
   );
 }

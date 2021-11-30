@@ -8,7 +8,7 @@ const pool = new Pool(dbParams);
 router.post('/', (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
-
+  console.log(req.body);
   return pool
     .query(
       `
@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
       if (password === loggedPass) {
         res.send(result.rows[0]);
       } else {
-        res.send({message: "A user with this password does not exist, please try again"});
+        res.status(401).send({message: "A user with this password does not exist, please try again"});
       }
     })
     .catch((err) => {

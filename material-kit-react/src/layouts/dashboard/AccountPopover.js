@@ -103,7 +103,7 @@ export default function AccountPopover() {
 
         <Divider sx={{ my: 1 }} />
 
-        {LOGIN_MENU_OPTIONS.map((option) => (
+        {LOGOUT_MENU_OPTIONS.map((option) => (
           <MenuItem
             key={option.label}
             to={option.linkTo}

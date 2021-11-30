@@ -5,6 +5,7 @@ import { useFormik, Form, FormikProvider } from 'formik';
 import { Icon } from '@iconify/react';
 import eyeFill from '@iconify/icons-eva/eye-fill';
 import eyeOffFill from '@iconify/icons-eva/eye-off-fill';
+import axios from 'axios';
 // material
 import {
   Link,
@@ -16,6 +17,7 @@ import {
   FormControlLabel
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import { values } from 'lodash';
 
 // ----------------------------------------------------------------------
 
@@ -36,17 +38,24 @@ export default function LoginForm() {
     },
     validationSchema: LoginSchema,
     onSubmit: () => {
-      navigate('/dashboard', { replace: true });
+      axios.post("http://localhost:8081/login", {
+        email: values.email,
+        password: values.password
+      })
+      navigate('/dashboard/watchlist', { replace: true });
     }
   });
-
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
-
   const handleShowPassword = () => {
     setShowPassword((show) => !show);
   };
 
-  return (
+  const emailsAlreadyInUse= [];
+
+
+
+
+ return (
     <FormikProvider value={formik}>
       <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
         <Stack spacing={3}>
