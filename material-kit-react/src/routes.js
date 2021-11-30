@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import About from './pages/About';
 import Landing from './pages/Landing';
-import Stocks from './pages/Stocks';
+import Stocks from './pages/Charts';
 import Watchlist from './pages/Watchlist';
 
 // ----------------------------------------------------------------------

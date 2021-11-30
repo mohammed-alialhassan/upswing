@@ -32,7 +32,7 @@ const SORT_OPTIONS = [
 
 export default function Landing() {
   return (
-    <Page title="Dashboard | Upswing">
+    <Page title="Upswing | Dashboard">
     <Container maxWidth="xl">
       <Box sx={{ pb: 5 }}>
         <Typography variant="h2">

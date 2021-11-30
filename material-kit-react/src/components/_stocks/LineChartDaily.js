@@ -3,14 +3,13 @@ import ReactApexChart from 'react-apexcharts';
 // material
 import { Card, CardHeader, Box } from '@mui/material';
 //
-import { BaseOptionChart } from '../../charts';
+import { BaseOptionChart } from '../charts';
 
 // ----------------------------------------------------------------------
 
-const DATA_INPUT = {}
+const CHART_INPUT = {};
 
-//will need a loop for 100 values that pushes to an array and object keys for date (and .getTime())
-DATA_INPUT.date = [
+CHART_INPUT.date = [
   '01/01/2003',
   '02/01/2003',
   '03/01/2003',
@@ -24,45 +23,127 @@ DATA_INPUT.date = [
   '11/01/2003'
 ]
 
-//will need a loop that pushes to an array for time.adjusted close
-DATA_INPUT.value = [
-  23,
-  11,
-  22,
-  27,
-  13,
-  22,
-  37,
-  21,
-  44,
-  22,
-  30
-]
-
-//can get name from the data object
 const CHART_DATA = [
   {
-    name: 'Stock Price',
+    // input currency in brackets beside price
+    name: 'Price',
     type: 'area',
-    data: DATA_INPUT.value
+    data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43]
   }
 ];
 
 export default function LineChartDaily() {
   const chartOptions = merge(BaseOptionChart(), {
-    stroke: { curve: 'straight' },
-    fill: { type: ['solid', 'gradient', 'solid'] },
-    labels: DATA_INPUT.date,
+    stroke: { curve: 'straight'},
+    fill: { type: ['gradient'] },
+    labels: CHART_INPUT.date,
     xaxis: { type: 'datetime' },
     tooltip: {
+      enabled: true,
       shared: true,
-      intersect: false,
+      followCursor: false,
+      theme: "light",
+      style: {
+        fontSize: '12px'
+      },
+      onDatasetHover: {
+        highlightDataSeries: false,
+      },
+      x: {
+        show: true,
+        format: 'dd MMM',
+        formatter: undefined,
+      },
       y: {
         formatter: (y) => {
           if (typeof y !== 'undefined') {
-            return `${y.toFixed(0)} visits`;
+            return `$${y.toFixed(0)}`;
           }
           return y;
+        }
+      },
+      marker: {
+        show: true,
+      },
+    },
+    grid: {
+      show: true,
+      borderColor: '#e6e6e6',
+      strokeDashArray: 10,
+      position: 'back',
+      xaxis: {
+        lines: {
+          show: false
+        }
+      },
+      yaxis: {
+        lines: {
+          show: true
+        }
+      },
+      padding: {
+        top: 0,
+        right: 10,
+        bottom: 0,
+        left: 10
+      },
+    },
+    chart: {
+      animations: {
+        enabled: true,
+        easing: 'easeinout',
+        speed: 600,
+        dynamicAnimation: {
+          enabled: true,
+          speed: 300
+        }
+      },
+      toolbar: {
+        show: true,
+        offsetX: 0,
+        offsetY: 0,
+        tools: {
+          download: true,
+          selection: true,
+          zoom: true,
+          zoomin: true,
+          zoomout: true,
+          pan: false,
+          reset: true,
+        },
+        export: {
+          csv: {
+            filename: undefined,
+            columnDelimiter: ',',
+            headerCategory: 'category',
+            headerValue: 'value',
+            dateFormatter(timestamp) {
+              return new Date(timestamp).toDateString()
+            }
+          },
+          svg: {
+            filename: undefined,
+          },
+          png: {
+            filename: undefined,
+          }
+        },
+        autoSelected: 'zoom'
+      },
+      zoom: {
+        enabled: true,
+        type: 'x',
+        autoScaleYaxis: true,
+        zoomedArea: {
+          fill: {
+            color: '#90CAF9',
+            opacity: 0.4
+          },
+          stroke: {
+            color: '#0D47A1',
+            opacity: 0.4,
+            width: 1
+          }
         }
       }
     }
@@ -70,9 +151,9 @@ export default function LineChartDaily() {
 
   return (
     <Card>
-      <CardHeader title="Website Visits" subheader="(+43%) than last year" />
+      <CardHeader title="Time Series Data (Ticker)" subheader="Daily" />
       <Box sx={{ p: 3, pb: 1 }} dir="ltr">
-        <ReactApexChart type="line" series={CHART_DATA} options={chartOptions} height={364} />
+        <ReactApexChart type="area" series={CHART_DATA} options={chartOptions} height={450} />
       </Box>
     </Card>
   );
