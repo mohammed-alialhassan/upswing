@@ -47,12 +47,12 @@ export default function RegisterForm() {
         email: values.email,
         password: values.password
       })
-      
+
       navigate('/dashboard/watchlist', { replace: true });
     }
   });
 
-
+  // **************** SET LOGIN STATE ****************************
 
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;

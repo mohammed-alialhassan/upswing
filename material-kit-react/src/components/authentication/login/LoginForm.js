@@ -42,22 +42,20 @@ export default function LoginForm() {
         email: values.email,
         password: values.password
       })
-      .then((res) => {
-        console.log("Login Response", res.data);
-      }).error((err) => {
-        console.log((err))
-      })
       navigate('/dashboard/watchlist', { replace: true });
     }
   });
-
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
-
   const handleShowPassword = () => {
     setShowPassword((show) => !show);
   };
 
-  return (
+  const emailsAlreadyInUse= [];
+  
+
+
+
+ return (
     <FormikProvider value={formik}>
       <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
         <Stack spacing={3}>
