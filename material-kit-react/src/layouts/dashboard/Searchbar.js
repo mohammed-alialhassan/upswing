@@ -72,7 +72,10 @@ export default function Searchbar() {
           axios.post('http://localhost:8081/api/stock-data', {
             ticker
           }).then((res) => {
-            console.log(res);
+            // console.log(res);
+            const stock = res.data.tsTickerData;
+            console.log(Object.keys(stock));
+            console.log(stock);
           }).catch((err) => {
             console.log("ERROR", err);
           });
