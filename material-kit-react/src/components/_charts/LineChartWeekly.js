@@ -10,17 +10,17 @@ import { BaseOptionChart } from '../charts';
 const CHART_INPUT = {};
 
 CHART_INPUT.date = [
-  '01/01/2003',
-  '02/01/2003',
-  '03/01/2003',
-  '04/01/2003',
-  '05/01/2003',
-  '06/01/2003',
-  '07/01/2003',
-  '08/01/2003',
-  '09/01/2003',
-  '10/01/2003',
-  '11/01/2003'
+  '2021-01-09',
+  '2021-02-12',
+  '2021-03-13',
+  '2021-04-14',
+  '2021-05-15',
+  '2021-06-16',
+  '2021-07-19',
+  '2021-08-20',
+  '2021-09-21',
+  '2021-10-22',
+  '2021-11-23'
 ]
 
 const CHART_DATA = [
@@ -32,16 +32,17 @@ const CHART_DATA = [
   }
 ];
 
-export default function LineChartDaily() {
+export default function LineChartWeekly() {
   const chartOptions = merge(BaseOptionChart(), {
     stroke: { curve: 'straight'},
-    fill: { type: ['gradient'] },
+    fill: { type: 'gradient' },
     labels: CHART_INPUT.date,
     xaxis: { type: 'datetime' },
+    colors: ['#F44336'],
     tooltip: {
       enabled: true,
       shared: true,
-      followCursor: false,
+      followCursor: true,
       theme: "light",
       style: {
         fontSize: '12px'
@@ -69,7 +70,7 @@ export default function LineChartDaily() {
     grid: {
       show: true,
       borderColor: '#e6e6e6',
-      strokeDashArray: 10,
+      strokeDashArray: 1,
       position: 'back',
       xaxis: {
         lines: {
@@ -83,9 +84,9 @@ export default function LineChartDaily() {
       },
       padding: {
         top: 0,
-        right: 10,
+        right: 7,
         bottom: 0,
-        left: 10
+        left: 7
       },
     },
     chart: {
@@ -145,13 +146,13 @@ export default function LineChartDaily() {
             width: 1
           }
         }
-      }
+      },
     }
   });
 
   return (
     <Card>
-      <CardHeader title="Time Series Data (Ticker)" subheader="Daily" />
+      <CardHeader title="Time Series Data (Ticker)" subheader="Weekly" />
       <Box sx={{ p: 3, pb: 1 }} dir="ltr">
         <ReactApexChart type="area" series={CHART_DATA} options={chartOptions} height={450} />
       </Box>
