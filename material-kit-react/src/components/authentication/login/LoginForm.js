@@ -35,22 +35,27 @@ export default function LoginForm() {
     password: Yup.string().required('Password is required')
   });
 
-
+  let username = '';
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
+      username: '',
       remember: true
     },
     validationSchema: LoginSchema,
     onSubmit: () => {
       axios.post("http://localhost:8081/login", {
         email: values.email,
-        password: values.password
+        password: values.password,
+      }).then((res) => {
+        username = res.data.data.username
+        console.log(res)
       })
       setLogin(login => ({...login,
         email: values.email,
-        password: values.password
+        password: values.password,
+        username: username.username
       }))
       navigate('/dashboard/watchlist', { replace: true });
     }
