@@ -35,27 +35,31 @@ export default function LoginForm() {
     password: Yup.string().required('Password is required')
   });
 
-
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
+      username: '',
       remember: true
     },
     validationSchema: LoginSchema,
     onSubmit: () => {
       axios.post("http://localhost:8081/login", {
         email: values.email,
-        password: values.password
+        password: values.password,
+        username: values.username
+      }).then((res) => {
+        console.log(res)
       })
       setLogin(login => ({...login,
         email: values.email,
-        password: values.password
+        password: values.password,
+        username: values.username
       }))
       navigate('/dashboard/watchlist', { replace: true });
     }
   });
-  console.log(login);
+
 /*
 If you want to update a state based on a previous state, we do the following:
 setState(state => ({...state, count: state.count + 1}));
@@ -92,12 +96,20 @@ setState(state => ({...state, count: state.count + 1}));
       });
   };
 */
-
-
  return (
     <FormikProvider value={formik}>
       <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
         <Stack spacing={3}>
+        <TextField
+            fullWidth
+            autoComplete="username"
+            type="username"
+            label="Username"
+            {...getFieldProps('username')}
+            error={Boolean(touched.username && errors.username)}
+            helperText={touched.username && errors.username}
+          />
+
           <TextField
             fullWidth
             autoComplete="email"
