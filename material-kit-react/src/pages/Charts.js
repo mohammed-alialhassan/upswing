@@ -4,11 +4,14 @@ import { Box, Grid, Container, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
 import LineChartDaily from '../components/_stocks/LineChartDaily';
-
-
-
+// import { useContext } from 'react';
+// react context
+// import { searchContext } from 'Contexts/Search-context';
 
 export default function Stocks() {
+
+  // import { setTicker } = useContext(searchContext);
+
   return (
     <Page title="Upswing | Charts">
       <Container maxWidth="xl">
