@@ -71,7 +71,7 @@ export default function LandingHero() {
       <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
         <HeroOverlayStyle alt="overlay" src="/static/overlay.svg" variants={varFadeIn} />
 
-        <HeroImgStyle alt="hero" src="/static/home/hero.png" variants={varFadeInUp} />
+        <HeroImgStyle alt="hero" src="/static/home/darkmode.png" variants={varFadeInUp} />
 
         <Container maxWidth="lg">
           <ContentStyle>
@@ -85,7 +85,7 @@ export default function LandingHero() {
 
             <motion.div variants={varFadeInRight}>
               <Typography sx={{ color: 'common.white' }}>
-                UpSwing: Save time and money with simple stock-market graphs and machine learning predictions.
+                Save time and money with simple stock-market graphs and machine learning predictions.
               </Typography>
             </motion.div>
 

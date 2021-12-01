@@ -40,7 +40,7 @@ export default function MainLayout() {
             <Typography variant="caption" component="p">
               © All rights reserved
               <br /> made by &nbsp;
-              <Link href="https://minimals.cc/">minimals.cc</Link>
+          Xavier Martin Demers and Amobi Gordon Maka and Mohammed Ali Al-Hassan
             </Typography>
           </Container>
         </Box>
