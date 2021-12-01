@@ -29,7 +29,6 @@ export default function LandingPage() {
       <LandingHero />
       <ContentStyle>
         <LandingMinimal />
-        <LandingCleanInterfaces />
         <LandingAdvertisement />
       </ContentStyle>
     </RootStyle>

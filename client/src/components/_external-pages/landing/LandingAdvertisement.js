@@ -36,8 +36,8 @@ export default function LandingAdvertisement() {
             mb: { xs: 3, md: 0 }
           }}
         >
-          <motion.div animate={{ y: [-20, 0, -20] }} transition={{ duration: 4, repeat: Infinity }}>
-            <Box component="img" alt="rocket" src="/static/home/rocket.png" sx={{ maxWidth: 460, width: 1 }} />
+          <motion.div animate={{ y: [-10, 0, -10] }} transition={{ duration: 4, repeat: Infinity }}>
+            <Box component="img" alt="rocket" src="/static/home/rocket.png" styles="margin-bottom: -20px;" sx={{ maxWidth: 460, width: 1 }} />
           </motion.div>
         </MotionInView>
 
@@ -54,6 +54,21 @@ export default function LandingAdvertisement() {
             </Typography>
           </MotionInView>
           <MotionInView variants={varFadeInDown}>
+            <Button
+              size="large"
+              variant="contained"
+              target="_blank"
+              href="https://material-ui.com/store/items/minimal-dashboard/"
+              sx={{
+                whiteSpace: 'nowrap',
+                boxShadow: (theme) => theme.customShadows.z8,
+                color: (theme) => theme.palette.getContrastText(theme.palette.common.white),
+                bgcolor: 'common.white',
+                '&:hover': { bgcolor: 'grey.300' }
+              }}
+            >
+              Register
+            </Button>
             <Button
               size="large"
               variant="contained"

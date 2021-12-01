@@ -128,7 +128,8 @@ const palette = {
     text: { primary: '#fff', secondary: GREY[500], disabled: GREY[600] },
     background: { paper: GREY[800], default: GREY[900], neutral: GREY[500_16] },
     action: { active: GREY[500], ...COMMON.action }
-  }
+  },
+  chart: CHART_COLORS
 };
 
 export default palette;
