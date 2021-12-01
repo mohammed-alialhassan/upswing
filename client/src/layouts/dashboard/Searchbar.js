@@ -1,12 +1,14 @@
 import { Icon } from '@iconify/react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import axios from 'axios';
+import { useFormik, Form, FormikProvider } from 'formik';
 import searchFill from '@iconify/icons-eva/search-fill';
 // material
 import { styled, alpha } from '@mui/material/styles';
 import { Box, Input, Slide, Button, InputAdornment, ClickAwayListener } from '@mui/material';
 // components
 import { MIconButton } from '../../components/@material-extend';
-
+import GlobalState from '../../components/GlobalState';
 // ----------------------------------------------------------------------
 
 const APPBAR_MOBILE = 64;
@@ -36,6 +38,8 @@ const SearchbarStyle = styled('div')(({ theme }) => ({
 
 export default function Searchbar() {
   const [isOpen, setOpen] = useState(false);
+  const [stock, setStock] = useContext(GlobalState);
+  const [ticker, setTicker] = useState('');
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
@@ -44,36 +48,81 @@ export default function Searchbar() {
   const handleClose = () => {
     setOpen(false);
   };
+  const formik = useFormik({
+    initialValues: {
+      ticker: ''
+    },
+    onSubmit: () => {
+      axios.post('http://localhost:8081/stock-data-collector', {
+        ticker
+      }).then(() => {
+        setTimeout(() => {
+          axios.post('http://localhost:8081/api/stock-data', {
+            ticker
+          }).then((res) => {
+            // console.log(res);
+            const stockHolder = [];
+
+            const stock = res.data.tsTickerData;
+
+            stockHolder.push(stock);
+
+            console.log(ticker);
+            console.log('printing');
+            console.log(stockHolder)
+
+            setStock(stockHolder);
+          }).catch((err) => {
+            console.log("ERROR", err);
+          });
+        }, 6500);
+      }).catch((err) => {
+        console.log("ERROR", err);
+      });
+      // navigate('/dashboard/stocks', { replace: true });
+    }
+  })
+
+  console.log("ticker in global state", ticker)
+
+  const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
+
 
   return (
-    <ClickAwayListener onClickAway={handleClose}>
-      <div>
-        {!isOpen && (
-          <MIconButton onClick={handleOpen}>
-            <Icon icon={searchFill} width={20} height={20} />
-          </MIconButton>
-        )}
+    <FormikProvider value={formik}>
+      <ClickAwayListener onClickAway={handleClose}>
+        <form noValidate onSubmit={handleSubmit}>
+          <div>
+            {!isOpen && (
+              <MIconButton onClick={handleOpen}>
+                <Icon icon={searchFill} width={20} height={20} />
+              </MIconButton>
+            )}
 
-        <Slide direction="down" in={isOpen} mountOnEnter unmountOnExit>
-          <SearchbarStyle>
-            <Input
-              autoFocus
-              fullWidth
-              disableUnderline
-              placeholder="Search…"
-              startAdornment={
-                <InputAdornment position="start">
-                  <Box component={Icon} icon={searchFill} sx={{ color: 'text.disabled', width: 20, height: 20 }} />
-                </InputAdornment>
-              }
-              sx={{ mr: 1, fontWeight: 'fontWeightBold' }}
-            />
-            <Button variant="contained" onClick={handleClose}>
-              Search
-            </Button>
-          </SearchbarStyle>
-        </Slide>
-      </div>
-    </ClickAwayListener>
+            <Slide direction="down" in={isOpen} mountOnEnter unmountOnExit>
+              <SearchbarStyle>
+                <Input
+                  autoFocus
+                  fullWidth
+                  disableUnderline
+                  placeholder="Search…"
+                  value={ticker}
+                  onInput={e => setTicker(e.target.value)}
+                  startAdornment={
+                    <InputAdornment position="start">
+                      <Box component={Icon} icon={searchFill} sx={{ color: 'text.disabled', width: 20, height: 20 }} />
+                    </InputAdornment>
+                  }
+                  sx={{ mr: 1, fontWeight: 'fontWeightBold' }}
+                />
+                <Button variant="contained" onClick={handleSubmit}>
+                  Search
+                </Button>
+              </SearchbarStyle>
+            </Slide>
+          </div>
+        </form>
+      </ClickAwayListener>
+    </FormikProvider>
   );
 }
