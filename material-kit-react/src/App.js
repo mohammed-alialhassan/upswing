@@ -13,10 +13,12 @@ import { BaseOptionChartStyle } from './components/charts/BaseOptionChart';
 
 export default function App() {
   // Global State
-  const [state, setState] = useState({});
+  // const [state, setState] = useState({});
+
+  const [state, setState] = useState('');
 
   return (
-  <GlobalState.Provider value={[state, setState]}>
+    <GlobalState.Provider value={[state, setState]}>
     <ThemeConfig>
       <ScrollToTop />
       <GlobalStyles />

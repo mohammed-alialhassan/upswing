@@ -1,8 +1,9 @@
 import { Icon } from '@iconify/react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import searchFill from '@iconify/icons-eva/search-fill';
 import { useFormik, Form, FormikProvider } from 'formik';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
+
 // material
 import { styled, alpha } from '@mui/material/styles';
 import axios from 'axios';
@@ -16,6 +17,7 @@ import {
   IconButton
 } from '@mui/material';
 
+import GlobalState from '../../components/GlobalState';
 // ----------------------------------------------------------------------
 
 const APPBAR_MOBILE = 64;
@@ -45,8 +47,11 @@ const SearchbarStyle = styled('div')(({ theme }) => ({
 
 export default function Searchbar() {
   const [isOpen, setOpen] = useState(false);
-  const [ticker, setTicker] = useState('');
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+
+  const [stock, setStock] = useContext(GlobalState);
+
+  const [ ticker, setTicker ] = useState('');
 
 
   const handleOpen = () => {
@@ -56,9 +61,6 @@ export default function Searchbar() {
   const handleClose = () => {
     setOpen(false);
   };
-
-
-
 
   const formik = useFormik({
     initialValues: {
@@ -72,7 +74,18 @@ export default function Searchbar() {
           axios.post('http://localhost:8081/api/stock-data', {
             ticker
           }).then((res) => {
-            console.log(res);
+            // console.log(res);
+            const stockHolder = [];
+
+            const stock = res.data.tsTickerData;
+
+            stockHolder.push(stock);
+
+            console.log(ticker);
+            console.log('printing');
+            console.log(stockHolder)
+
+            setStock(stockHolder);
           }).catch((err) => {
             console.log("ERROR", err);
           });
@@ -84,6 +97,7 @@ export default function Searchbar() {
     }
   });
 
+  console.log("ticker in global state", ticker)
 
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
 
