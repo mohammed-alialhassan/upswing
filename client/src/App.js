@@ -1,3 +1,5 @@
+import { React, useState } from 'react';
+import GlobalState from './components/GlobalState';
 // routes
 import Router from './routes';
 // theme
@@ -13,17 +15,20 @@ import ThemePrimaryColor from './components/ThemePrimaryColor';
 // ----------------------------------------------------------------------
 
 export default function App() {
+  const [state, setState] = useState('');
   return (
-    <ThemeConfig>
-      <ThemePrimaryColor>
-        <RtlLayout>
-          <GlobalStyles />
-          <ProgressBarStyle />
-          <Settings />
-          <ScrollToTop />
-          <Router />
-        </RtlLayout>
-      </ThemePrimaryColor>
-    </ThemeConfig>
+    <GlobalState.Provider value={[state, setState]}>
+      <ThemeConfig>
+        <ThemePrimaryColor>
+          <RtlLayout>
+            <GlobalStyles />
+            <ProgressBarStyle />
+            <Settings />
+            <ScrollToTop />
+            <Router />
+          </RtlLayout>
+        </ThemePrimaryColor>
+      </ThemeConfig>
+    </GlobalState.Provider>
   );
 }

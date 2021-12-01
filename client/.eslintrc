@@ -60,7 +60,7 @@
       {
         "ignoreRestSiblings": false
       }
-    ],
+    ] /*
     "prettier/prettier": [
       2,
       {
@@ -70,5 +70,6 @@
         "tabWidth": 2
       }
     ]
+    */
   }
 }

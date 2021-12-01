@@ -14,6 +14,9 @@
   "authors": "Xavier Martin Demers, Mohammed Ali Al-Hassan, Amobi Gordon Maka",
   "license": "ISC",
   "dependencies": {
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "@mui/material": "^5.2.2",
     "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",

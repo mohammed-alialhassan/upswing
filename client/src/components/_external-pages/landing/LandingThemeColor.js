@@ -23,7 +23,7 @@ import { MotionInView, varFadeInUp, varFadeInDown } from '../../animate';
 const RootStyle = styled('div')(({ theme }) => ({
   padding: theme.spacing(15, 0),
   backgroundImage:
-    theme.palette.mode === 'light'
+    theme.palette.mode === 'dark'
       ? `linear-gradient(180deg, ${theme.palette.grey[300]} 0%, ${alpha(theme.palette.grey[300], 0)} 100%)`
       : 'none'
 }));
