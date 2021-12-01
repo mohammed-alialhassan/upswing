@@ -8,16 +8,8 @@ import useSettings from '../hooks/useSettings';
 // components
 import Page from '../components/Page';
 
-/*
-import {
-  AppCurrentVisits,
-  AppWebsiteVisits } from '../components/_dashboard/app'; /*
 
 
-
-/*
-
- */
 /* const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
   { field: 'company', headerName: 'Company', width: 130 },
@@ -58,18 +50,6 @@ export default function PageOne() {
         <Typography variant="h3" component="h1" paragraph>
           Hi, Welcome To Upswing
         </Typography>
-        {/* <Grid container spacing={3}
-        >
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppWebsiteVisits />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentVisits />
-          </Grid>
-
-        </Grid> */}
         <Typography gutterBottom>
           Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod
           ligula urna in dolor. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Phasellus blandit leo
