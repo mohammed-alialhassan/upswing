@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const { externalDataFetcher } = require("../../lib/externalDataFetcher");
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
   externalDataFetcher(req.body.ticker);
-  res.redirect('/api/stock-data');
+  res.send({message: "Data received by database!"});
 });
 
 module.exports = router;

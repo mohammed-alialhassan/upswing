@@ -1,9 +1,11 @@
 import { Icon } from '@iconify/react';
 import plusFill from '@iconify/icons-eva/plus-fill';
 import { Link as RouterLink } from 'react-router-dom';
+import { useContext, useState } from 'react';
 // material
 import { Box, Grid, Button, Container, Stack, Typography } from '@mui/material';
 // components
+import GlobalState from "../components/GlobalState";
 
 import Page from '../components/Page';
 import {  AppTasks,
@@ -31,8 +33,11 @@ const SORT_OPTIONS = [
 // ----------------------------------------------------------------------
 
 export default function Landing() {
+
+  const [ stock ] = useContext(GlobalState);
+
   return (
-    <Page title="Dashboard | Minimal-UI">
+    <Page title="Upswing | Dashboard">
     <Container maxWidth="xl">
       <Box sx={{ pb: 5 }}>
         <Typography variant="h2">

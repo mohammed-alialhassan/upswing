@@ -19,8 +19,8 @@ exports.addUser = function(body) {
       RETURNING *;
       `,
       [
-        body.firstName,
-        body.lastName,
+        body.first_name,
+        body.last_name,
         body.username,
         body.email,
         body.password

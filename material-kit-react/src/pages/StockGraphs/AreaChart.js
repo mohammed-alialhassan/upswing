@@ -5,7 +5,10 @@ import * as LightweightCharts from 'lightweight-charts';
 import axios from 'axios';
 import { useQuery, useMutation, QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { }
 
+// react context
+// import { searchContext } from 'Contexts/Search-context';
 
 // const queryClient = new QueryClient();
 
@@ -26,6 +29,8 @@ const status = [
 
 
 function AreaChart() {
+
+  // import { setTicker } = useContext(searchContext);
 
   function DataFetch() {
     const { isLoading, data, error, isError } =

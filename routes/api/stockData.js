@@ -5,8 +5,8 @@ const { dbParams } = require('../../db/params/dbParams');
 
 const pool = new Pool(dbParams);
 
-router.get(`/`, (req, res) => {
-  const ticker = 'IBM';
+router.post(`/`, (req, res) => {
+  const ticker = req.body.ticker;
   pool
     .query(
       `
@@ -22,7 +22,7 @@ router.get(`/`, (req, res) => {
     )
     .then((results) => {
       const tsTickerData = results.rows[0].json_build_object;
-      res.json({ tsTickerData });
+      res.send({ tsTickerData });
     })
     .catch((err) => {
       console.log(err.message);

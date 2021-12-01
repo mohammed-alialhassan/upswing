@@ -1,19 +1,25 @@
 import * as Yup from 'yup';
-import { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Icon } from '@iconify/react';
 import { useFormik, Form, FormikProvider } from 'formik';
 import eyeFill from '@iconify/icons-eva/eye-fill';
 import eyeOffFill from '@iconify/icons-eva/eye-off-fill';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 // material
 import { Stack, TextField, IconButton, InputAdornment } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import { values } from 'lodash';
+import GlobalState from '../../GlobalState';
 
 // ----------------------------------------------------------------------
 
 export default function RegisterForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+
+  // Global State
+  const [login, setLogin] = useContext(GlobalState);
 
   const RegisterSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -35,8 +41,22 @@ export default function RegisterForm() {
       password: ''
     },
     validationSchema: RegisterSchema,
-    onSubmit: () => {
-      navigate('/dashboard', { replace: true });
+    onSubmit: values => {
+      console.log('Form Data', values)
+      axios.post("http://localhost:8081/register", {
+        first_name: values.firstName,
+        last_name: values.lastName,
+        username: values.username,
+        email: values.email,
+        password: values.password
+      })
+// **************** SET LOGIN STATE ****************************
+      setLogin(login => ({...login,
+        username: values.username,
+        email: values.email,
+        password: values.password
+      }))
+      navigate('/dashboard/watchlist', { replace: true });
     }
   });
 
