@@ -49,8 +49,8 @@ export default function LandingAdvertisement() {
         >
           <MotionInView variants={varFadeInDown} sx={{ color: 'common.white', mb: 5 }}>
             <Typography variant="h2">
-              Get started with
-              <br /> minimal kit today
+              Join or login with
+              <br /> UpSwing today!
             </Typography>
           </MotionInView>
           <MotionInView variants={varFadeInDown}>
@@ -67,7 +67,7 @@ export default function LandingAdvertisement() {
                 '&:hover': { bgcolor: 'grey.300' }
               }}
             >
-              Purchase Now
+              Login
             </Button>
           </MotionInView>
         </Box>

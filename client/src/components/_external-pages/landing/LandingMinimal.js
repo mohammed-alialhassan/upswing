@@ -9,19 +9,19 @@ import { varFadeInUp, MotionInView, varFadeInDown } from '../../animate';
 const CARDS = [
   {
     icon: '/static/icons/ic_design.svg',
-    title: 'UI & UX Design',
+    title: 'Simplicity',
     description:
-      'The set is built on the principles of the atomic design system. It helps you to create projects fastest and easily customized packages for your projects.'
+      'Our WebApp is built on the principles simplicity. It helps easily understand stock market data without an accounting/economics degree.'
   },
   {
     icon: '/static/icons/ic_code.svg',
-    title: 'Development',
-    description: 'Easy to customize and extend each component, saving you time and money.'
+    title: 'Efficiency',
+    description: 'Easy to use at a click of a button, saving you time and money.'
   },
   {
-    icon: '/static/brand/logo_single.svg',
-    title: 'Branding',
-    description: 'Consistent design in colors, fonts ... makes brand recognition easy.'
+    icon: '/favicon/favicon.ico',
+    title: 'Ease of use',
+    description: 'Our consistent graphing design makes market data recognition easy.'
   }
 ];
 
@@ -100,12 +100,12 @@ export default function LandingMinimalHelps() {
         <Box sx={{ mb: { xs: 10, md: 25 } }}>
           <MotionInView variants={varFadeInUp}>
             <Typography component="p" variant="overline" sx={{ mb: 2, color: 'text.secondary', textAlign: 'center' }}>
-              Minimal
+              UpSwing
             </Typography>
           </MotionInView>
           <MotionInView variants={varFadeInDown}>
             <Typography variant="h2" sx={{ textAlign: 'center' }}>
-              What minimal helps you?
+              How UpSwing helps you?
             </Typography>
           </MotionInView>
         </Box>
