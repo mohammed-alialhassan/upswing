@@ -6,7 +6,6 @@ import {
   LandingHero,
   LandingMinimal,
   LandingAdvertisement,
-  LandingCleanInterfaces
 } from '../components/_external-pages/landing';
 
 // ----------------------------------------------------------------------
@@ -29,7 +28,6 @@ export default function LandingPage() {
       <LandingHero />
       <ContentStyle>
         <LandingMinimal />
-        <LandingCleanInterfaces />
         <LandingAdvertisement />
       </ContentStyle>
     </RootStyle>

@@ -11,7 +11,7 @@ export default function PageThree() {
   const { themeStretch } = useSettings();
 
   return (
-    <Page title="UpSwing | Page Two">
+    <Page title="UpSwing | Page Three">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h3" component="h1" paragraph>
           Page Three
