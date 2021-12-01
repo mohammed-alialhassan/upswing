@@ -11,7 +11,7 @@ export default function PageFive() {
   const { themeStretch } = useSettings();
 
   return (
-    <Page title="Page Five | Minimal-UI">
+    <Page title="UpSwing | Page Five">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h3" component="h1" paragraph>
           Page Five

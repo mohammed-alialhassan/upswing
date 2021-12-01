@@ -10,7 +10,7 @@ export default function PageFour() {
   const { themeStretch } = useSettings();
 
   return (
-    <Page title="Page Four | Minimal-UI">
+    <Page title="UpSwing | Page Four">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h3" component="h1" paragraph>
           Page Four

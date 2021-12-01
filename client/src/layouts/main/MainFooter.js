@@ -114,19 +114,6 @@ export default function MainFooter() {
             </Stack>
           </Grid>
         </Grid>
-
-        <Typography
-          component="p"
-          variant="body2"
-          sx={{
-            mt: 10,
-            pb: 5,
-            fontSize: 13,
-            textAlign: { xs: 'center', md: 'left' }
-          }}
-        >
-          © 2021. All rights reserved
-        </Typography>
       </Container>
     </RootStyle>
   );
