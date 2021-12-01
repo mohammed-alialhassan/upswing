@@ -18,7 +18,7 @@ export default function Instructions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Register an account with us! Surprise right?
+            Click On The Magnifying Glass At The Top
             </Typography>
         </AccordionDetails>
       </Accordion>
@@ -32,8 +32,8 @@ export default function Instructions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Log Access your user profile/hoeme page
-            </Typography>
+            Type The Target Company's Ticker
+          </Typography>
         </AccordionDetails>
       </Accordion>
       <Accordion>
@@ -46,7 +46,7 @@ export default function Instructions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Search the Ticker of almost any Company you want insight on
+            Click The Search Button
           </Typography>
         </AccordionDetails>
       </Accordion>
@@ -64,5 +64,6 @@ export default function Instructions() {
           </Typography>
         </AccordionDetails>
       </Accordion>
+
     </div>
   )}

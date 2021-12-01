@@ -4,6 +4,7 @@ import { Container, Typography } from '@mui/material';
 import useSettings from '../hooks/useSettings';
 // components
 import Page from '../components/Page';
+import Mission from '../components/missionStatement';
 
 // ----------------------------------------------------------------------
 
@@ -14,22 +15,27 @@ export default function PageTwo() {
     <Page title="UpSwing | About Us Page">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h2" component="h1" paragraph>
-
-Our Story                  </Typography>
+         <h2> OUR STORY </h2>
+                  </Typography>
+                  <br />
         <Typography gutterBottom>
-          in [year] b2021 UpSwingong way from its
-           beginnings in a [stas just an idea!t
-          ore fthe 3tarted out, his/her their for [passioninnovation and accessibility m to [themion,find a way to make
-          expert level market information, open to all. This wasetus to turn hard work and inspiration into to a booming online store. We now s
-          erve customers all over [place, ie: the US, the world, the Austin area], and are thrilled to be a part of the [adjecti
-          ve, ie: quirky, eco-friendly, fair trade] wing of the [industry type, ie: fashion, baked goods, watches] industry.        </Typography>
+          Founded in 2021, UpSwing come a long way
+          from its beginnings as just an idea!
+          When the 3 first started out, their passion for innovation and accessibility drove them to find a way to make
+          expert level market information, open to all. This was the impetus to turn hard work and inspiration into to a reliable and user-friendly investing resource.
+          All over the world, people are taking advantage Upswing and consumers are thrilled to not only be making profit off the AI but also learning about
+          the market and its MANY trends.
+        </Typography>
+        <br />
         <Typography>
-          Praesent ac sem eget est egestas volutpat. Phasellus viverra nulla ut metus varius laoreet. Curabitur
-          ullamcorper ultricies nisi. Ut non enim eleifend felis pretium feugiat. Donec mi odio, faucibus at,
-          scelerisque quis, convallis in, nisi. Fusce vel dui. Quisque libero metus, condimentum nec, tempor a, commodo
-          mollis, magna. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Cras dapibus.
+          <h2> OUR MISSION </h2>
+
+HereWith thOur team has put in many hours and sleepless nights into research. Not only to make our app work
+            but also who may need it the most? Whether you're in the prime of your life or just entering life after
+            highschool, Upswing aims to bring "PACE"            <div>
+              <Mission />
+              </div>
         </Typography>
       </Container>
     </Page>
-  );
-}
+)}

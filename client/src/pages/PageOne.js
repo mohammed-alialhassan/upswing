@@ -4,6 +4,7 @@ import lazySizes from 'lazysizes';
 
 // material
 import { Box, Grid, Container, Typography } from '@mui/material';
+import dashboardGraphs from '../components/dashCharts';
 // hooks
 import useSettings from '../hooks/useSettings';
 // components
@@ -45,28 +46,25 @@ export default function PageOne() {
 
   return (
     <Page title="UpSwing | Page One">
-      <h2> Knowledge of The Market, In The Palm of Your Hand!</h2>
+     <h2> How TO Get Started </h2>
+      <Instructions />
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h3" component="h1" paragraph>
-          <h4>How TO Get Started</h4>
+          <br />
+          <h4>Benefits of Upswing</h4>
         </Typography>
-        <div>
-          <Instructions />
-        </div>
+        <br />
         <Typography gutterBottom>
-          Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod
-          ligula urna in dolor. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Phasellus blandit leo
-          ut odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id
-          purus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. In consectetuer turpis ut velit.
-          Ae an posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus.
-          Vestibulum suscipit nulla quis orci. Nam commodo suscipit quam. Sed a libero.
-
-          ^In case you missed that, Upswing aims to give you exactly that. Just choose a stock and the app will not only display its price and spec but also
+          Upswing aims to give you exactly that. Just choose a stock and the app will not only display its price and spec but also
           predict the future?!!
-        </Typography>
+ALL IT TAKES is one ticker of the company you're looking to get insight on and let us do the rest!
+          With Tensorflow machine-learning, our app is set to take the daily, weekly, and monthly stock prices and predict its future
+          through a highly researched and tested algorithm. This makes it easier for beginners in investment who don't have real expertise
+          and even well-experenced investors that want to check for reassurance the trends of the stock and market they search up!        </Typography>
       </Container>
     </Page>
   );
 }
+
 
 

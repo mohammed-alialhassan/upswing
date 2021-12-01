@@ -2,6 +2,7 @@ import { Icon } from '@iconify/react';
 import { useState, useContext } from 'react';
 import axios from 'axios';
 import { useFormik, Form, FormikProvider } from 'formik';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import searchFill from '@iconify/icons-eva/search-fill';
 // material
 import { styled, alpha } from '@mui/material/styles';
@@ -40,6 +41,7 @@ export default function Searchbar() {
   const [isOpen, setOpen] = useState(false);
   const [stock, setStock] = useContext(GlobalState);
   const [ticker, setTicker] = useState('');
+  const navigate = useNavigate();
 
   const handleOpen = () => {
     setOpen((prev) => !prev);
@@ -79,7 +81,7 @@ export default function Searchbar() {
       }).catch((err) => {
         console.log("ERROR", err);
       });
-      // navigate('/dashboard/stocks', { replace: true });
+      navigate('/dashboard/stocks', { replace: true });
     }
   })
 
