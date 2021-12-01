@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import lazySizes from 'lazysizes';
 
 // material
 import { Box, Grid, Container, Typography } from '@mui/material';
@@ -7,13 +8,6 @@ import { Box, Grid, Container, Typography } from '@mui/material';
 import useSettings from '../hooks/useSettings';
 // components
 import Page from '../components/Page';
-
-/*
-import {
-  AppCurrentVisits,
-  AppWebsiteVisits } from '../components/_dashboard/app'; /*
-
-
 
 /*
 
