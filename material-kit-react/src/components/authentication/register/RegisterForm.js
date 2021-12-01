@@ -60,8 +60,6 @@ export default function RegisterForm() {
     }
   });
 
-  console.log('state', login);
-
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 
   return (
