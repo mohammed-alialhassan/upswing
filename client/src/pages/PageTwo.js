@@ -11,19 +11,18 @@ export default function PageTwo() {
   const { themeStretch } = useSettings();
 
   return (
-    <Page title="UpSwing | Page Two">
+    <Page title="UpSwing | About Us Page">
       <Container maxWidth={themeStretch ? false : 'xl'}>
-        <Typography variant="h3" component="h1" paragraph>
-          Page Two
-        </Typography>
+        <Typography variant="h2" component="h1" paragraph>
+
+Our Story                  </Typography>
         <Typography gutterBottom>
-          Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod
-          ligula urna in dolor. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Phasellus blandit leo
-          ut odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id
-          purus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. In consectetuer turpis ut velit.
-          Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus.
-          Vestibulum suscipit nulla quis orci. Nam commodo suscipit quam. Sed a libero.
-        </Typography>
+          in [year] b2021 UpSwingong way from its
+           beginnings in a [stas just an idea!t
+          ore fthe 3tarted out, his/her their for [passioninnovation and accessibility m to [themion,find a way to make
+          expert level market information, open to all. This wasetus to turn hard work and inspiration into to a booming online store. We now s
+          erve customers all over [place, ie: the US, the world, the Austin area], and are thrilled to be a part of the [adjecti
+          ve, ie: quirky, eco-friendly, fair trade] wing of the [industry type, ie: fashion, baked goods, watches] industry.        </Typography>
         <Typography>
           Praesent ac sem eget est egestas volutpat. Phasellus viverra nulla ut metus varius laoreet. Curabitur
           ullamcorper ultricies nisi. Ut non enim eleifend felis pretium feugiat. Donec mi odio, faucibus at,

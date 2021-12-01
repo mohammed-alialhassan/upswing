@@ -1,22 +1,51 @@
 import { Icon } from '@iconify/react';
-import { useRef, useState } from 'react';
+import { useRef, useState, React, useContext, useEffect, Fragment } from 'react';
+
 import homeFill from '@iconify/icons-eva/home-fill';
 import personFill from '@iconify/icons-eva/person-fill';
 import settings2Fill from '@iconify/icons-eva/settings-2-fill';
+import lockFill from '@iconify/icons-eva/lock-fill';
+import personAddFill from '@iconify/icons-eva/person-add-fill';
+
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import { alpha } from '@mui/material/styles';
-import { Avatar, Button, Box, Divider, MenuItem, Typography } from '@mui/material';
+import { Avatar, Button, Box, Divider, MenuItem, Typography, IconButton } from '@mui/material';
 // components
 import { MIconButton } from '../../components/@material-extend';
 import MenuPopover from '../../components/MenuPopover';
-
+import GlobalState from '../../components/GlobalState';
 // ----------------------------------------------------------------------
 
-const MENU_OPTIONS = [
-  { label: 'Home', icon: homeFill, linkTo: '/' },
-  { label: 'Profile', icon: personFill, linkTo: '#' },
-  { label: 'Settings', icon: settings2Fill, linkTo: '#' }
+const LOGOUT_MENU_OPTIONS = [
+  {
+    label: 'Login',
+    linkTo: '/login',
+    icon: lockFill
+  },
+  {
+    label: 'Register',
+    linkTo: '/register',
+    icon: personAddFill
+  }
+]
+
+const LOGGEDIN_MENU_OPTIONS = [
+  {
+    label: 'Home',
+    icon: homeFill,
+    linkTo: '/'
+  },
+  {
+    label: 'Profile',
+    icon: personFill,
+    linkTo: '#'
+  },
+  {
+    label: 'Settings',
+    icon: settings2Fill,
+    linkTo: '#'
+  }
 ];
 
 // ----------------------------------------------------------------------
@@ -69,7 +98,7 @@ export default function AccountPopover() {
 
         <Divider sx={{ my: 1 }} />
 
-        {MENU_OPTIONS.map((option) => (
+        {LOGGEDIN_MENU_OPTIONS.map((option) => (
           <MenuItem
             key={option.label}
             to={option.linkTo}

@@ -11,7 +11,7 @@ export default function PageSix() {
   const { themeStretch } = useSettings();
 
   return (
-    <Page title="UpSwing | Page Six">
+    <Page title="UpSwing | Watchlist Page">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h3" component="h1" paragraph>
           Page Six

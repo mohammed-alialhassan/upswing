@@ -22,3 +22,10 @@ export const PATH_DASHBOARD = {
     pageSix: path(ROOTS_DASHBOARD, '/app/six')
   }
 };
+
+
+export const AUTHENTICATION = {
+  root: ROOTS_DASHBOARD,
+  register: path(ROOTS_DASHBOARD, '/register'),
+  login: path(ROOTS_DASHBOARD, '/login')
+}

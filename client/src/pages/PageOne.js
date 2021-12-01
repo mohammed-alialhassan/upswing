@@ -21,8 +21,7 @@ const columns = [
     sortable: false,
     width: 160,
     valueGetter: (params) =>
-      `${params.getValue(params.id, 'company') || ''} ${
-        params.getValue(params.id, 'ticker') || ''
+      `${params.getValue(params.id, 'company') || ''} ${params.getValue(params.id, 'ticker') || ''
       }`,
   },
 ];
@@ -46,29 +45,28 @@ export default function PageOne() {
 
   return (
     <Page title="UpSwing | Page One">
+      <h2> Knowledge of The Market, In The Palm of Your Hand!</h2>
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h3" component="h1" paragraph>
-          Hi, Welcome To Upswing
+          <h4>How TO Get Started</h4>
         </Typography>
-        <h1> Knowledge of The Market, At The Palm of Your Hands!</h1>
-                <Typography gutterBottom>
+        <div>
+          <Instructions />
+        </div>
+        <Typography gutterBottom>
           Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod
           ligula urna in dolor. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Phasellus blandit leo
           ut odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id
           purus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. In consectetuer turpis ut velit.
-          Aen
-         <Instructions />
-          an posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus.
+          Ae an posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus.
           Vestibulum suscipit nulla quis orci. Nam commodo suscipit quam. Sed a libero.
-          Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod
-          ligula urna in dolor. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Phasellus blandit leo
-          ut odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id
-          purus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.          Praesent ac sem eget est egestas volutpat. Phasellus viverra nulla ut metus varius laoreet. Curabitur
-          ullamcorper ultricies nisi. Ut non enim eleifend felis pretium feugiat. Donec mi odio, faucibus at,
-          scelerisque quis, convallis in, nisi. Fusce vel dui. Quisque libero metus, condimentum nec, tempor a, commodo
-          mollis, magna. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Cras dapibus.
+
+          ^In case you missed that, Upswing aims to give you exactly that. Just choose a stock and the app will not only display its price and spec but also
+          predict the future?!!
         </Typography>
       </Container>
     </Page>
   );
 }
+
+

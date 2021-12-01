@@ -32,7 +32,7 @@ export default function Instructions() {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Log Access ouyour user profile/hoeme page
+            Log Access your user profile/hoeme page
             </Typography>
         </AccordionDetails>
       </Accordion>

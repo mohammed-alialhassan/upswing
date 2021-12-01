@@ -20,27 +20,27 @@ const sidebarConfig = [
   // GENERAL
   // ----------------------------------------------------------------------
   {
-    subheader: 'general',
+    subheader: 'General',
     items: [
-      { title: 'One', path: PATH_DASHBOARD.general.pageOne, icon: ICONS.dashboard },
-      { title: 'Two', path: PATH_DASHBOARD.general.pageTwo, icon: ICONS.ecommerce },
-      { title: 'Three', path: PATH_DASHBOARD.general.pageThree, icon: ICONS.analytics }
+      { title: 'Home', path: PATH_DASHBOARD.general.pageOne, icon: ICONS.dashboard },
+      { title: 'About Us', path: PATH_DASHBOARD.general.pageTwo, icon: ICONS.ecommerce },
+      { title: 'Profile', path: PATH_DASHBOARD.general.pageThree, icon: ICONS.analytics }
     ]
   },
 
   // MANAGEMENT
   // ----------------------------------------------------------------------
   {
-    subheader: 'management',
+    subheader: 'Analytics',
     items: [
       {
-        title: 'user',
+        title: 'Stock Watch',
         path: PATH_DASHBOARD.app.root,
         icon: ICONS.user,
         children: [
-          { title: 'Four', path: PATH_DASHBOARD.app.pageFour },
-          { title: 'Five', path: PATH_DASHBOARD.app.pageFive },
-          { title: 'Six', path: PATH_DASHBOARD.app.pageSix }
+          { title: 'Stocks', path: PATH_DASHBOARD.app.pageFour },
+          { title: 'Predictions', path: PATH_DASHBOARD.app.pageFive },
+          { title: 'Watchlist', path: PATH_DASHBOARD.app.pageSix }
         ]
       }
     ]
