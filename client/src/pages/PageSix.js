@@ -5,12 +5,12 @@ import lazySizes from 'lazysizes';
 // material
 import { Box, Grid, Container, Typography } from '@mui/material';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 
 // hooks
 import useSettings from '../hooks/useSettings';
 // components
 import Page from '../components/Page';
-
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -36,20 +36,20 @@ const rows = [
   { id: 5, ticker: 'FB', company: 'Meta', price: '307.95', trending: 'down'},
   { id: 6, ticker: 'Gme', company: 'Gamestop', price: '178.26', trending: 'up'},
   { id: 7, ticker: 'Googl', company: 'Google', price: '2,857.03', trending: 'neutral'},
-  { id: 8, ticker: 'MCD', company: 'McDonalds', price: '249.01', trending: 'neautral'},
+  { id: 8, ticker: 'MCD', company: 'McDonalds', price: '249.01', trending: 'neutral'},
   { id: 9, ticker: 'NVDA', company: 'Nvidia', price: '320.09', trending: 'down'},
-  { id: 10, ticker: 'PPSL', company: 'Pepsi', price: 'price', trending: 'neautral'},
-  { id: 11, ticker: 'TSLA', company: 'Tesla', price: 'price', trending: 'up'},
-  { id: 12, ticker: 'WEN', company: 'Wendy', price: 'price', trending: 'neautral'},
-  { id: 13, ticker: 'CAR', company: 'Avis Budget Group', price: 'price', trending: 'neautral'},
-  { id: 14, ticker: 'IDT', company: 'IDT Corp', price: 'price', trending: 'neautral'},
-  { id: 15, ticker: 'NKE', company: 'Nike', price: 'price', trending: 'neautral'},
-  { id: 16, ticker: 'AMC', company: 'AMC', price: 'price', trending: 'down'},
-  { id: 17, ticker: 'T', company: 'AT&T', price: 'price', trending: 'up'},
-  { id: 18, ticker: 'ZM', company: 'Zoom Video Communications', price: 'price', trending: 'neautral'},
-  { id: 19, ticker: 'NFLX', company: 'Netflix', price: 'price', trending: 'down'},
-  { id: 20, ticker: 'COST', company: 'Costco', price: 'price', trending: 'down'},
-  { id: 21, ticker: 'AMD', company: 'Advanced Micro Devices', price: 'price', trending: 'up' }
+  { id: 10, ticker: 'PPSL', company: 'Pepsi', price: '161.24', trending: 'neutral'},
+  { id: 11, ticker: 'TSLA', company: 'Tesla', price: '1,078.77', trending: 'up'},
+  { id: 12, ticker: 'WEN', company: 'Wendy', price: '21.07', trending: 'neutral'},
+  { id: 13, ticker: 'CAR', company: 'Avis Budget Group', price: '270.05', trending: 'neutral'},
+  { id: 14, ticker: 'IDT', company: 'IDT Corp', price: '47.22', trending: 'neutral'},
+  { id: 15, ticker: 'NKE', company: 'Nike', price: '169.57', trending: 'neutral'},
+  { id: 16, ticker: 'AMC', company: 'AMC', price: '29.60', trending: 'down'},
+  { id: 17, ticker: 'T', company: 'AT&T', price: '23.12', trending: 'up'},
+  { id: 18, ticker: 'ZM', company: 'Zoom Video Communications', price: '189.10', trending: 'neutral'},
+  { id: 19, ticker: 'NFLX', company: 'Netflix', price: '614.30', trending: 'down'},
+  { id: 20, ticker: 'COST', company: 'Costco', price: '528.86', trending: 'down'},
+  { id: 21, ticker: 'AMD', company: 'Advanced Micro Devices', price: '149.77', trending: 'up' }
 ];
 // ----------------------------------------------------------------------
 

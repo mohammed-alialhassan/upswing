@@ -21,27 +21,6 @@ import Page from "../components/Page";
 import Instructions from "../components/instructions";
 
 // ----------------------------------------------------------------------
-/*
-export function newCard() {
-  return (
-    <Box>
-      <CardContent>
-        <Typography gutterBottom>
-          Upswing aims to give you exactly that. Just choose a stock and the app
-          will not only display its price and spec but also predict the
-          future?!! ALL IT TAKES is one ticker of the company you're looking to
-          get insight on and let us do the rest! With Tensorflow
-          machine-learning, our app is set to take the daily, weekly, and
-          monthly stock prices and predict its future through a highly
-          researched and tested algorithm. This makes it easier for beginners in
-          investment who don't have real expertise and even well-experenced
-          investors that want to check for reassurance the trends of the stock
-          and market they search up!
-        </Typography>
-      </CardContent>
-    </Box>
-  );
-} */
 
 export default function PageOne() {
   const { themeStretch } = useSettings();
@@ -62,7 +41,7 @@ export default function PageOne() {
       <Card variant='outlined'>
           <CardContent>
             <Typography gutterBottom>
-              Bamoozled aims to give you exactly that. Just choose a stock and the
+              Upswing aims to give you exactly that. Just choose a stock and the
               app will not only display its price and spec but also predict the
               future?!! ALL IT TAKES is one ticker of the company you're looking
               to get insight on and let us do the rest! With Tensorflow
@@ -77,7 +56,7 @@ export default function PageOne() {
           </Card>
         </Box>
         <br />
-        <h1> How TO Get Started </h1>
+        <h1> How To Get Started </h1>
         <br />
         <Instructions />
       </Container>
