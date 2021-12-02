@@ -5,6 +5,7 @@ import { Box } from '@mui/material';
 //
 import { varSmallClick, varMediumClick } from './variants';
 
+
 // ----------------------------------------------------------------------
 
 ButtonAnimate.propTypes = {
