@@ -75,8 +75,8 @@ export default function Searchbar() {
             console.log('printing');
             console.log(stockHolder)
 
-            setStock(stockHolder);
             setTickerName(tickerName);
+            setStock(stockHolder);
           }).catch((err) => {
             console.log("ERROR", err);
           });
