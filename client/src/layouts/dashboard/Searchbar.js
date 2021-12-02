@@ -41,6 +41,7 @@ export default function Searchbar() {
   const [isOpen, setOpen] = useState(false);
   const [stock, setStock] = useContext(GlobalState);
   const [ticker, setTicker] = useState('');
+  const [tickerName, setTickerName] = useContext(GlobalState);
   const navigate = useNavigate();
 
   const handleOpen = () => {
@@ -66,6 +67,7 @@ export default function Searchbar() {
             const stockHolder = [];
 
             const stock = res.data.tsTickerData;
+            const tickerName = ticker;
 
             stockHolder.push(stock);
 
@@ -74,6 +76,7 @@ export default function Searchbar() {
             console.log(stockHolder)
 
             setStock(stockHolder);
+            setTickerName(tickerName);
           }).catch((err) => {
             console.log("ERROR", err);
           })

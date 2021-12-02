@@ -4,12 +4,14 @@ import lazySizes from 'lazysizes';
 
 // material
 import { Box, Grid, Container, Typography } from '@mui/material';
-import dashboardGraphs from '../components/dashCharts';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import Chartist from '../components/dashCharts';
 // hooks
 import useSettings from '../hooks/useSettings';
 // components
 import Page from '../components/Page';
 import Instructions from '../components/instructions'
+
 
 const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
@@ -46,7 +48,8 @@ export default function PageOne() {
 
   return (
     <Page title="UpSwing | Page One">
-     <h2> How TO Get Started </h2>
+     <h1> How TO Get Started </h1>
+     <br />
       <Instructions />
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h3" component="h1" paragraph>
@@ -54,6 +57,7 @@ export default function PageOne() {
           <h4>Benefits of Upswing</h4>
         </Typography>
         <br />
+        <AnalyticsIcon />
         <Typography gutterBottom>
           Upswing aims to give you exactly that. Just choose a stock and the app will not only display its price and spec but also
           predict the future?!!
