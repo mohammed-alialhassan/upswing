@@ -76,12 +76,13 @@ export default function Searchbar() {
             setStock(stockHolder);
           }).catch((err) => {
             console.log("ERROR", err);
-          });
-        }, 6500);
+          })
+        }, 5000);
+      }).then(() => {
+        navigate('/dashboard/app/four', { replace: true });
       }).catch((err) => {
         console.log("ERROR", err);
       });
-      navigate('/dashboard/stocks', { replace: true });
     }
   })
 
