@@ -55,6 +55,8 @@ export default function AccountPopover() {
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
 
+  const [login, setLogin] = useContext(GlobalState);
+
   const handleOpen = () => {
     setOpen(true);
   };
@@ -90,10 +92,10 @@ export default function AccountPopover() {
       <MenuPopover open={open} onClose={handleClose} anchorEl={anchorRef.current} sx={{ width: 220 }}>
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle1" noWrap>
-            Xavier
+            {login.username}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            xavier@gmail.com
+            {login.email}
           </Typography>
         </Box>
 
@@ -120,7 +122,7 @@ export default function AccountPopover() {
             {option.label}
           </MenuItem>
         ))}
-
+        {/* Yet to implement logout button */}
         <Box sx={{ p: 2, pt: 1.5 }}>
           <Button fullWidth color="inherit" variant="outlined">
             Logout

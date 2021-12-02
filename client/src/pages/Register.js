@@ -44,7 +44,7 @@ export default function Register() {
     <RootStyle title="Register">
       <AuthLayout>
         Already have an account? &nbsp;
-        <Link underline="none" variant="subtitle2" component={RouterLink} to="/login">
+        <Link underline="none" variant="subtitle2" component={RouterLink} to="login">
           Login
         </Link>
       </AuthLayout>
@@ -52,7 +52,7 @@ export default function Register() {
       <MHidden width="mdDown">
         <SectionStyle>
           <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-            Get Your Account With Upswing Started Today!
+            Get Your Account Started With Upswing Today!
           </Typography>
         </SectionStyle>
       </MHidden>

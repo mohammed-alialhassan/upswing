@@ -44,7 +44,7 @@ export default function Login() {
     <RootStyle title="UpSwing | Login">
       <AuthLayout>
         Don’t have an account? &nbsp;
-        <Link underline="none" variant="subtitle2" component={RouterLink} to="/register">
+        <Link underline="hover" variant="subtitle2" component={RouterLink} to="register">
           Get started
         </Link>
       </AuthLayout>

@@ -31,6 +31,10 @@ export default function LandingAdvertisement() {
   return (
     <Container maxWidth="lg">
       <ContentStyle>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
         <MotionInView
           variants={varFadeInUp}
           sx={{
@@ -71,7 +75,9 @@ export default function LandingAdvertisement() {
             >
               Register
             </Button>
-
+            &nbsp;
+            &nbsp;
+            &nbsp;
             <Button
               size="large"
               variant="contained"

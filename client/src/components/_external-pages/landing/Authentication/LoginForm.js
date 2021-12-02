@@ -60,6 +60,8 @@ export default function LoginForm() {
     }
   });
 
+  console.log({login})
+
 /*
 If you want to update a state based on a previous state, we do the following:
 setState(state => ({...state, count: state.count + 1}));
@@ -68,7 +70,7 @@ setState(state => ({...state, count: state.count + 1}));
 
 
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
-  
+
   const handleShowPassword = () => {
     setShowPassword((show) => !show);
   };
