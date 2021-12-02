@@ -29,14 +29,15 @@ export default function PageTwo() {
   return (
     <ContentStyle title="UpSwing | About Us Page">
       <Container maxWidth={themeStretch ? false : 'xl'}>
-        <Typography variant="h2" component="h1" paragraph>
+        <Typography variant="h3" component="h1" paragraph>
          <h4> OUR STORY </h4>
                   </Typography>
                   <ButtonAnimate>
                     <OutlinedCard />
                     </ButtonAnimate>
-                    <br />
+
         <Typography gutterBottom>
+          <br />
           Founded in 2021, UpSwing come a long way
           from its beginnings as just an idea!
           When the 3 first started out, their passion for innovation and accessibility drove them to find a way to make

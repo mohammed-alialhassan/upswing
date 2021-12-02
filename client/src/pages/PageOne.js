@@ -4,6 +4,7 @@ import lazySizes from 'lazysizes';
 
 // material
 import { Box, Grid, Container, Typography } from '@mui/material';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
 import Chartist from '../components/dashCharts';
 // hooks
 import useSettings from '../hooks/useSettings';
@@ -56,6 +57,7 @@ export default function PageOne() {
           <h4>Benefits of Upswing</h4>
         </Typography>
         <br />
+        <AnalyticsIcon />
         <Typography gutterBottom>
           Upswing aims to give you exactly that. Just choose a stock and the app will not only display its price and spec but also
           predict the future?!!
@@ -64,7 +66,6 @@ ALL IT TAKES is one ticker of the company you're looking to get insight on and l
           through a highly researched and tested algorithm. This makes it easier for beginners in investment who don't have real expertise
           and even well-experenced investors that want to check for reassurance the trends of the stock and market they search up!        </Typography>
       </Container>
-      <Chartist />
     </Page>
   );
 }
