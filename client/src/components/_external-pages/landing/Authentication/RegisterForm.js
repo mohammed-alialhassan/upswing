@@ -59,6 +59,7 @@ export default function RegisterForm() {
       navigate('/dashboard/one', { replace: true });
     }
   });
+  console.log(login)
 
   const { errors, touched, handleSubmit, isSubmitting, getFieldProps } = formik;
 

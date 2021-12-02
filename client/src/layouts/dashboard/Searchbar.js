@@ -39,9 +39,10 @@ const SearchbarStyle = styled('div')(({ theme }) => ({
 
 export default function Searchbar() {
   const [isOpen, setOpen] = useState(false);
+
   const [stock, setStock] = useContext(GlobalState);
   const [ticker, setTicker] = useState('');
-  const [tickerName, setTickerName] = useContext(GlobalState);
+
   const navigate = useNavigate();
 
   const handleOpen = () => {
@@ -64,32 +65,25 @@ export default function Searchbar() {
             ticker
           }).then((res) => {
             // console.log(res);
-            const stockHolder = [];
+            const stockHolder = [ticker];
 
             const stock = res.data.tsTickerData;
-            const tickerName = ticker;
 
             stockHolder.push(stock);
 
-            console.log(ticker);
-            console.log('printing');
-            console.log(stockHolder)
-
             setStock(stockHolder);
-            setTickerName(tickerName);
+
+          }).then(() => {
+            navigate('/dashboard/app/four', { replace: true });
           }).catch((err) => {
             console.log("ERROR", err);
           })
-        }, 5000);
-      }).then(() => {
-        navigate('/dashboard/app/four', { replace: true });
+        }, 3000);
       }).catch((err) => {
         console.log("ERROR", err);
       });
     }
   })
-
-  console.log("ticker in global state", ticker)
 
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
 

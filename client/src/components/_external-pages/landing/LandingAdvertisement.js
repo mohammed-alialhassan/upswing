@@ -27,12 +27,14 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function LandingAdvertisement() {
-  const navigate = useNavigate();
-  const handleClick = navigate('/dashboard/one', { replace: true });
 
   return (
     <Container maxWidth="lg">
       <ContentStyle>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
         <MotionInView
           variants={varFadeInUp}
           sx={{
@@ -61,8 +63,7 @@ export default function LandingAdvertisement() {
               size="large"
               type="button"
               variant="contained"
-              target="_blank"
-              to="/login"
+              to="/register"
               component={RouterLink}
               sx={{
                 whiteSpace: 'nowrap',
@@ -74,11 +75,14 @@ export default function LandingAdvertisement() {
             >
               Register
             </Button>
+            &nbsp;
+            &nbsp;
+            &nbsp;
             <Button
               size="large"
               variant="contained"
-              target="_blank"
-              href="https://material-ui.com/store/items/minimal-dashboard/"
+              to="/login"
+              component={RouterLink}
               sx={{
                 whiteSpace: 'nowrap',
                 boxShadow: (theme) => theme.customShadows.z8,

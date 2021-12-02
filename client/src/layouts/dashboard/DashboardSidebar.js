@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 // material
 import { alpha, styled } from '@mui/material/styles';
 import { Box, Link, Stack, Avatar, Drawer, Tooltip, Typography, CardActionArea } from '@mui/material';
 // hooks
+import GlobalState from '../../components/GlobalState';
 import useCollapseDrawer from '../../hooks/useCollapseDrawer';
 // components
 import Logo from '../../components/Logo';
@@ -75,7 +76,7 @@ function IconCollapse({ onToggleCollapse, collapseClick }) {
               height: 0
             })
           }}
-        />
+          />
       </CardActionArea>
     </Tooltip>
   );
@@ -87,10 +88,12 @@ DashboardSidebar.propTypes = {
 };
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
+  const [ login, setLogin ] = useContext(GlobalState);
+
   const { pathname } = useLocation();
 
   const { isCollapse, collapseClick, collapseHover, onToggleCollapse, onHoverEnter, onHoverLeave } =
-    useCollapseDrawer();
+  useCollapseDrawer();
 
   useEffect(() => {
     if (isOpenSidebar) {
@@ -101,14 +104,14 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
   const renderContent = (
     <Scrollbar
-      sx={{
+    sx={{
+      height: '100%',
+      '& .simplebar-content': {
         height: '100%',
-        '& .simplebar-content': {
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column'
-        }
-      }}
+        display: 'flex',
+        flexDirection: 'column'
+      }
+    }}
     >
       <Stack
         spacing={3}
@@ -120,7 +123,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
             alignItems: 'center'
           })
         }}
-      >
+        >
         <Stack direction="row" alignItems="center" justifyContent="space-between">
           <Box component={RouterLink} to="/" sx={{ display: 'inline-flex' }}>
             <Logo />
@@ -133,16 +136,16 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
         {isCollapse ? (
           <Avatar alt="My Avatar" src="/static/mock-images/avatars/avatar_default.jpg" sx={{ mx: 'auto', mb: 2 }} />
-        ) : (
-          <Link underline="none" component={RouterLink} to="#">
+          ) : (
+            <Link underline="none" component={RouterLink} to="#">
             <AccountStyle>
               <Avatar alt="My Avatar" src="/static/mock-images/avatars/avatar_default.jpg" />
               <Box sx={{ ml: 2 }}>
                 <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-                  displayName
+                  {login.username}
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                  role
+                  {login.email}
                 </Typography>
               </Box>
             </AccountStyle>
@@ -154,15 +157,16 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
     </Scrollbar>
   );
 
+
   return (
     <RootStyle
-      sx={{
-        width: {
-          lg: isCollapse ? COLLAPSE_WIDTH : DRAWER_WIDTH
-        },
-        ...(collapseClick && {
-          position: 'absolute'
-        })
+    sx={{
+      width: {
+        lg: isCollapse ? COLLAPSE_WIDTH : DRAWER_WIDTH
+      },
+      ...(collapseClick && {
+        position: 'absolute'
+      })
       }}
     >
       <MHidden width="lgUp">
