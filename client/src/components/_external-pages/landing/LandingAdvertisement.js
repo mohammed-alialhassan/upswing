@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 // material
 import { styled } from '@mui/material/styles';
-import { Button, Box, Container, Typography } from '@mui/material';
+import { Button, Box, Container, Typography, Link } from '@mui/material';
 //
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { varFadeInDown, varFadeInUp, MotionInView } from '../../animate';
-
 // ----------------------------------------------------------------------
 
 const ContentStyle = styled('div')(({ theme }) => ({
@@ -27,6 +27,9 @@ const ContentStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function LandingAdvertisement() {
+  const navigate = useNavigate();
+  const handleClick = navigate('/dashboard/one', { replace: true });
+
   return (
     <Container maxWidth="lg">
       <ContentStyle>
@@ -56,9 +59,11 @@ export default function LandingAdvertisement() {
           <MotionInView variants={varFadeInDown}>
             <Button
               size="large"
+              type="button"
               variant="contained"
               target="_blank"
-              href="https://material-ui.com/store/items/minimal-dashboard/"
+              to="/login"
+              component={RouterLink}
               sx={{
                 whiteSpace: 'nowrap',
                 boxShadow: (theme) => theme.customShadows.z8,

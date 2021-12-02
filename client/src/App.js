@@ -15,7 +15,7 @@ import ThemePrimaryColor from './components/ThemePrimaryColor';
 // ----------------------------------------------------------------------
 
 export default function App() {
-  const [state, setState] = useState('');
+  const [state, setState] = useState(GlobalState);
   return (
     <GlobalState.Provider value={[state, setState]}>
       <ThemeConfig>

@@ -234,9 +234,13 @@ const NEW_DATA = [
   }
 ];
 
-CHART_DATA[0].data.forEach(value => {
-  const newVal = value + (Math.random() * 1.2) + 0.8;
-  NEW_DATA[0].data = newVal
+CHART_DATA[0].data.forEach((value) => {
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+  const newVal = value * getRandomArbitrary(1.05, 0.95)
+  NEW_DATA[0].data.push(newVal);
 })
 
 export default function AreaWeekly() {

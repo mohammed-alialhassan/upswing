@@ -6,7 +6,6 @@ import {
   LandingHero,
   LandingMinimal,
   LandingAdvertisement,
-  LandingCleanInterfaces
 } from '../components/_external-pages/landing';
 
 // ----------------------------------------------------------------------

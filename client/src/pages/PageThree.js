@@ -4,8 +4,6 @@ import { Container, Typography } from '@mui/material';
 import useSettings from '../hooks/useSettings';
 // components
 import Page from '../components/Page';
-import AreaDaily from '../layouts/dashboard/charts/AreaDaily'
-import AreaWeekly from '../layouts/dashboard/charts/AreaWeekly';
 
 // ----------------------------------------------------------------------
 
@@ -13,18 +11,18 @@ export default function PageThree() {
   const { themeStretch } = useSettings();
 
   return (
-    <Page title="UpSwing | Page Two">
+    <Page title="UpSwing | Profile Page">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h3" component="h1" paragraph>
-          Stocks
+          Profile
         </Typography>
-        <AreaDaily />
-      </Container>
-      <Container maxWidth={themeStretch ? false : 'xl'}>
-        <Typography variant="h3" component="h1" paragraph>
-          Stocks
+        {/* <Typography gutterBottom>
+          Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod
+          ligula urna in dolor.
         </Typography>
-        <AreaWeekly />
+        <Typography>
+          Praesent ac sem eget est egestas volutpat. Phasellus viverra nulla ut metus varius laoreet.
+        </Typography> */}
       </Container>
     </Page>
   );

@@ -22,3 +22,4 @@ export const PATH_DASHBOARD = {
     pageSix: path(ROOTS_DASHBOARD, '/app/six')
   }
 };
+

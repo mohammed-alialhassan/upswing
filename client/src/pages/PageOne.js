@@ -1,24 +1,17 @@
 import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
+import lazySizes from 'lazysizes';
 
 // material
 import { Box, Grid, Container, Typography } from '@mui/material';
+import dashboardGraphs from '../components/dashCharts';
 // hooks
 import useSettings from '../hooks/useSettings';
 // components
 import Page from '../components/Page';
+import Instructions from '../components/instructions'
 
-/*
-import {
-  AppCurrentVisits,
-  AppWebsiteVisits } from '../components/_dashboard/app'; /*
-
-
-
-/*
-
- */
-/* const columns = [
+const columns = [
   { field: 'id', headerName: 'ID', width: 70 },
   { field: 'company', headerName: 'Company', width: 130 },
   { field: 'ticker', headerName: 'Ticker', width: 130 },
@@ -29,8 +22,7 @@ import {
     sortable: false,
     width: 160,
     valueGetter: (params) =>
-      `${params.getValue(params.id, 'company') || ''} ${
-        params.getValue(params.id, 'ticker') || ''
+      `${params.getValue(params.id, 'company') || ''} ${params.getValue(params.id, 'ticker') || ''
       }`,
   },
 ];
@@ -40,13 +32,13 @@ const rows = [
   { id: 2, ticker: 'AMZN', company: 'Amazon' },
   { id: 3, ticker: 'AMC', company: 'AMC' },
   { id: 4, ticker: 'Stark', company: '' },
-  { id: 5, ticker: 'DAL', company: 'Delta Airlines' },
-  { id: 6, ticker: 'GOOGL', company: 'Google' },
-  { id: 7, ticker: 'FB', company: 'Meta' },
-  { id: 8, ticker: 'MCD', company: 'McDonalds' },
+  { id: 5, ticker: 'Targaryen', company: 'Daenerys' },
+  { id: 6, ticker: 'Melisandre', company: 'Googl' },
+  { id: 7, ticker: 'Clifford', company: 'Ferrara' },
+  { id: 8, ticker: 'Frances', company: 'Rossini' },
   { id: 9, ticker: 'NVDA', company: 'Nvidia' },
 ];
-*/
+
 // ----------------------------------------------------------------------
 
 export default function PageOne() {
@@ -54,39 +46,25 @@ export default function PageOne() {
 
   return (
     <Page title="UpSwing | Page One">
+     <h2> How TO Get Started </h2>
+      <Instructions />
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h3" component="h1" paragraph>
-          Hi, Welcome To Upswing
+          <br />
+          <h4>Benefits of Upswing</h4>
         </Typography>
-        {/* <Grid container spacing={3}
-        >
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppWebsiteVisits />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentVisits />
-          </Grid>
-
-        </Grid> */}
+        <br />
         <Typography gutterBottom>
-          Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod
-          ligula urna in dolor. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Phasellus blandit leo
-          ut odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id
-          purus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. In consectetuer turpis ut velit.
-          Aene
-          an posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus.
-          Vestibulum suscipit nulla quis orci. Nam commodo suscipit quam. Sed a libero.
-          Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod
-          ligula urna in dolor. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Phasellus blandit leo
-          ut odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id
-          purus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.          Praesent ac sem eget est egestas volutpat. Phasellus viverra nulla ut metus varius laoreet. Curabitur
-          ullamcorper ultricies nisi. Ut non enim eleifend felis pretium feugiat. Donec mi odio, faucibus at,
-          scelerisque quis, convallis in, nisi. Fusce vel dui. Quisque libero metus, condimentum nec, tempor a, commodo
-          mollis, magna. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Cras dapibus.
-        </Typography>
+          Upswing aims to give you exactly that. Just choose a stock and the app will not only display its price and spec but also
+          predict the future?!!
+ALL IT TAKES is one ticker of the company you're looking to get insight on and let us do the rest!
+          With Tensorflow machine-learning, our app is set to take the daily, weekly, and monthly stock prices and predict its future
+          through a highly researched and tested algorithm. This makes it easier for beginners in investment who don't have real expertise
+          and even well-experenced investors that want to check for reassurance the trends of the stock and market they search up!        </Typography>
       </Container>
     </Page>
   );
 }
+
+
+

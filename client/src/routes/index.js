@@ -6,6 +6,10 @@ import DashboardLayout from '../layouts/dashboard';
 import LogoOnlyLayout from '../layouts/LogoOnlyLayout';
 // components
 import LoadingScreen from '../components/LoadingScreen';
+
+
+
+
 // ----------------------------------------------------------------------
 
 const Loadable = (Component) => (props) => {
@@ -69,7 +73,11 @@ export default function Router() {
     {
       path: '/',
       element: <MainLayout />,
-      children: [{ element: <LandingPage /> }]
+      children: [
+        { element: <LandingPage /> },
+        { path: 'login', element: <Login /> },
+        { path: 'register', element: <Register />}
+      ]
     },
     { path: '*', element: <Navigate to="/404" replace /> }
   ]);
@@ -87,3 +95,7 @@ const PageSix = Loadable(lazy(() => import('../pages/PageSix')));
 const NotFound = Loadable(lazy(() => import('../pages/Page404')));
 // Main
 const LandingPage = Loadable(lazy(() => import('../pages/LandingPage')));
+// Authentication
+const Login = Loadable(lazy(() => import('../pages/Login')));
+const Register = Loadable(lazy(() => import('../pages/Register')));
+

@@ -4,6 +4,7 @@ import { Container, Typography } from '@mui/material';
 import useSettings from '../hooks/useSettings';
 // components
 import Page from '../components/Page';
+import Mission from '../components/missionStatement';
 
 // ----------------------------------------------------------------------
 
@@ -11,26 +12,30 @@ export default function PageTwo() {
   const { themeStretch } = useSettings();
 
   return (
-    <Page title="UpSwing | Page Two">
+    <Page title="UpSwing | About Us Page">
       <Container maxWidth={themeStretch ? false : 'xl'}>
-        <Typography variant="h3" component="h1" paragraph>
-          Page Two
-        </Typography>
+        <Typography variant="h2" component="h1" paragraph>
+         <h2> OUR STORY </h2>
+                  </Typography>
+                  <br />
         <Typography gutterBottom>
-          Curabitur turpis. Vestibulum facilisis, purus nec pulvinar iaculis, ligula mi congue nunc, vitae euismod
-          ligula urna in dolor. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Phasellus blandit leo
-          ut odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id
-          purus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. In consectetuer turpis ut velit.
-          Aenean posuere, tortor sed cursus feugiat, nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus.
-          Vestibulum suscipit nulla quis orci. Nam commodo suscipit quam. Sed a libero.
+          Founded in 2021, UpSwing come a long way
+          from its beginnings as just an idea!
+          When the 3 first started out, their passion for innovation and accessibility drove them to find a way to make
+          expert level market information, open to all. This was the impetus to turn hard work and inspiration into to a reliable and user-friendly investing resource.
+          All over the world, people are taking advantage Upswing and consumers are thrilled to not only be making profit off the AI but also learning about
+          the market and its MANY trends.
         </Typography>
+        <br />
         <Typography>
-          Praesent ac sem eget est egestas volutpat. Phasellus viverra nulla ut metus varius laoreet. Curabitur
-          ullamcorper ultricies nisi. Ut non enim eleifend felis pretium feugiat. Donec mi odio, faucibus at,
-          scelerisque quis, convallis in, nisi. Fusce vel dui. Quisque libero metus, condimentum nec, tempor a, commodo
-          mollis, magna. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Cras dapibus.
+          <h2> OUR MISSION </h2>
+
+HereWith thOur team has put in many hours and sleepless nights into research. Not only to make our app work
+            but also who may need it the most? Whether you're in the prime of your life or just entering life after
+            highschool, Upswing aims to bring "PACE"            <div>
+              <Mission />
+              </div>
         </Typography>
       </Container>
     </Page>
-  );
-}
+)}
