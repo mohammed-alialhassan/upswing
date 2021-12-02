@@ -17,6 +17,7 @@ import MenuPopover from '../../components/MenuPopover';
 import GlobalState from '../../components/GlobalState';
 // ----------------------------------------------------------------------
 
+// Since the user won't (but still can), access the dashboard until they login/register, this is no longer necessary.
 const LOGOUT_MENU_OPTIONS = [
   {
     label: 'Login',

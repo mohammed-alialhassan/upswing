@@ -29,7 +29,7 @@ export default function LoginForm() {
   // May have to change to state/useState to match global state import (ex in app.js)
   const [login, setLogin] = useContext(GlobalState);
 
-
+  // This is to ensure that it must be a valid email and user must input a password to login.
   // const LoginSchema = Yup.object().shape({
   //   email: Yup.string().email('Email must be a valid email address').required('Email is required'),
   //   password: Yup.string().required('Password is required')
@@ -68,6 +68,7 @@ setState(state => ({...state, count: state.count + 1}));
 
 
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
+  
   const handleShowPassword = () => {
     setShowPassword((show) => !show);
   };

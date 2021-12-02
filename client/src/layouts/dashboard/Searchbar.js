@@ -81,7 +81,7 @@ export default function Searchbar() {
       }).catch((err) => {
         console.log("ERROR", err);
       });
-      navigate('/dashboard/stocks', { replace: true });
+      navigate('/dashboard/app/four', { replace: true });
     }
   })
 

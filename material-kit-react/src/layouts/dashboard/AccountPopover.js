@@ -65,7 +65,6 @@ export default function AccountPopover() {
     setOpen(false);
   };
 
-
   // Account Config
   const account = {
     displayName: login.username,
