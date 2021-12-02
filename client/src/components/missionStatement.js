@@ -46,7 +46,7 @@ export default function Mission() {
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
-          Correctly interpret company/stock data to provide reliable market predictions
+          Correctly interpreting company/stock data to provide reliable market predictions
         </Typography>
       </AccordionDetails>
     </Accordion>
@@ -60,7 +60,7 @@ export default function Mission() {
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
-          End investment loss many first time/investors experience from lack of knowledge
+          End investment loss many first-time investors experience from a lack of knowledge
           or fluctuating market trends
         </Typography>
       </AccordionDetails>
