@@ -5,6 +5,7 @@ import useSettings from '../hooks/useSettings';
 // components
 import Page from '../components/Page';
 import AreaDaily from '../layouts/dashboard/charts/AreaDaily'
+import AreaWeekly from '../layouts/dashboard/charts/AreaWeekly'
 // ----------------------------------------------------------------------
 
 export default function PageFour() {
@@ -14,9 +15,15 @@ export default function PageFour() {
     <Page title="UpSwing | Stocks Page">
       <Container maxWidth={themeStretch ? false : 'xl'}>
         <Typography variant="h3" component="h1" paragraph>
-          Stocks
+          Existing Data
         </Typography>
         <AreaDaily />
+      </Container>
+      <Container maxWidth={themeStretch ? false : 'xl'}>
+        <Typography variant="h3" component="h1" paragraph>
+          Simulated Data
+        </Typography>
+        <AreaWeekly />
       </Container>
     </Page>
   );
