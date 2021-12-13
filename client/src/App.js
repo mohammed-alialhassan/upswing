@@ -1,34 +1,25 @@
-import { React, useState } from 'react';
-import GlobalState from './components/GlobalState';
-// routes
-import Router from './routes';
-// theme
-import ThemeConfig from './theme';
-import GlobalStyles from './theme/globalStyles';
-// components
-import Settings from './components/settings';
-import RtlLayout from './components/RtlLayout';
-import ScrollToTop from './components/ScrollToTop';
-import { ProgressBarStyle } from './components/LoadingScreen';
-import ThemePrimaryColor from './components/ThemePrimaryColor';
+import './styles/App.scss';
 
-// ----------------------------------------------------------------------
 
-export default function App() {
-  const [state, setState] = useState(GlobalState);
+function App() {
   return (
-    <GlobalState.Provider value={[state, setState]}>
-      <ThemeConfig>
-        <ThemePrimaryColor>
-          <RtlLayout>
-            <GlobalStyles />
-            <ProgressBarStyle />
-            <Settings />
-            <ScrollToTop />
-            <Router />
-          </RtlLayout>
-        </ThemePrimaryColor>
-      </ThemeConfig>
-    </GlobalState.Provider>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
 }
+
+export default App;

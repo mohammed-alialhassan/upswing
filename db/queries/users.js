@@ -1,7 +1,6 @@
 require('dotenv').config();
 const { Pool }     = require('pg');
 const { dbParams } = require('../params/dbParams');
-const bcrypt       = require('bcrypt');
 
 const pool = new Pool(dbParams);
 
