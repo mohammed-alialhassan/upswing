@@ -1,30 +1,26 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import SecondFooter from "../components/Footer2";
 
 
-export default function Login() {
-
+export default function Register() {
 
     return (
         <>
-        <div>
-
-            <div className="min-h-screen flex">
+             <div className="min-h-full flex">
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto" viewBox="0 0 20 20" fill="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto" viewBox="0 0 20 20" fill="currentColor">
                   <a href="/home" className="fill-stone-600 hover:fill-amber-300">
                   <path fill-rule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clip-rule="evenodd" />
                   <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
                   </a>
                   </svg>
-              <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Sign in to your UpSwing account</h2>
+              <h2 className="mt-6 text-3xl font-extrabold text-gray-900">Get started with UpSwing</h2>
               <p className="mt-2 text-sm text-gray-600">
-                Or{' '}
-                <a href="/register" className="font-medium text-indigo-600 hover:text-indigo-500">
-                  click here to get started
+              Already registered?{' '}
+                <a href="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
+                 Click here to sign in
                 </a>
               </p>
             </div>
@@ -32,7 +28,7 @@ export default function Login() {
             <div className="mt-8">
               <div>
                 <div>
-                  <p className="text-sm font-medium text-gray-700">Sign in with</p>
+                  <p className="text-sm font-medium text-gray-700">Register with</p>
 
                   <div className="mt-1 grid grid-cols-3 gap-3">
                     <div>
@@ -93,6 +89,37 @@ export default function Login() {
 
               <div className="mt-6">
                 <form action="#" method="POST" className="space-y-6">
+                <div className="flex flex-row justify-between">
+                    
+                    <div className="mt-1 w-40">
+                    <label htmlFor="first_name" className="block text-sm font-medium text-gray-700 ">
+                      First Name
+                    </label>
+                      <input
+                        id="first_name"
+                        name="first_name"
+                        type="first_name"
+                        autoComplete="first_name"
+                        required
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      />
+                    </div>
+                    
+                    <div className="mt-1 w-40">
+                    <label htmlFor="last_name" className="block text-sm font-medium text-gray-700 ">
+                      Last Name
+                    </label>
+                      <input
+                        id="last_name"
+                        name="last_name"
+                        type="last_name"
+                        autoComplete="last_name"
+                        required
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      />
+                    </div>
+                  </div>
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                       Email address
@@ -118,6 +145,22 @@ export default function Login() {
                         id="password"
                         name="password"
                         type="password"
+                        autoComplete="current-password"
+                        required
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                      Confirm Password
+                    </label>
+                    <div className="mt-1">
+                      <input
+                        id="confirm_password"
+                        name="confirm_password"
+                        type="confirm_password"
                         autoComplete="current-password"
                         required
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -161,15 +204,12 @@ export default function Login() {
         <div className="hidden lg:block relative w-0 flex-1">
           <img
             className="absolute inset-0 h-full w-full object-cover"
-            src="https://img.freepik.com/free-photo/business-people-shaking-hands-together_53876-13391.jpg?w=2000"
+            src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
             alt=""
           />
         </div>
       </div>
-
-
-            <SecondFooter />
-        </div>
+      <SecondFooter />
         </>
     )
 }

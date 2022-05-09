@@ -38,6 +38,7 @@ const supportLinks = [
 export default function Home() {
     return (
         <>
+        
         <div className="max-h-screen overflow-y-scroll">
         <Navbar />
       <div className="relative min-h-screen bg-slate-50">
