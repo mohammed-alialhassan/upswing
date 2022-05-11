@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { NewspaperIcon, PhoneIcon, SupportIcon } from '@heroicons/react/outline'
+import ReactTypingEffect from 'react-typing-effect';
 
 const supportLinks = [
     {
@@ -43,16 +44,20 @@ export default function Home() {
         <Navbar />
       <div className="relative min-h-screen bg-slate-50">
           
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-slate-50">
           <img
-            className="w-full h-full object-cover"
-            src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
+            className="w-full h-full object-cover bg-slate-50"
+            src="https://images.unsplash.com/photo-1620228885847-9eab2a1adddc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1373&q=80"
             alt=""
           />
           <div className="absolute inset-0 bg-slate-50 mix-blend-multiply" aria-hidden="true" />
         </div>
-        <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">Get in touch</h1>
+        <div className="relative max-w-7xl mx-auto py-24 px-96 sm:py-32 sm:px-96 lg:px-8">
+        <ReactTypingEffect
+        text={["Welcome  to  UpSwing"]}
+        className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
+      />
+
           <p className="mt-6 text-xl text-indigo-100 max-w-3xl">
             Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel
             lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.
@@ -60,7 +65,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative bg-gray-900">
+      <div className="min-h-screen relative bg-gray-900">
       <div className="h-80 w-full absolute bottom-0 xl:inset-0 xl:h-full">
         <div className="h-full w-full xl:grid xl:grid-cols-2">
           <div className="h-full xl:relative xl:col-start-2">
@@ -150,9 +155,8 @@ export default function Home() {
         </div>
       </section>
     </div>
-    <Footer />
     </div>
-      
+    <Footer />
       </>
     )
   }
