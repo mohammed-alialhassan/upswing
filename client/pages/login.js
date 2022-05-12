@@ -18,7 +18,7 @@ export default function Login() {
     console.log('Email is: ', email,
     'Password is: ', password);
   
-    axios.post('/login', {
+    axios.post('http://localhost:3001/login', {
       //shortform for email: email and password: password
       email, 
       password

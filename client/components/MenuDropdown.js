@@ -18,7 +18,9 @@ export default function MenuDropDown() {
   // Goal is to have it conditionally render and set up in a different place
   const deleteCookie = (event) => {
     event.preventDefault();
-    axios.post('/logout', { withCredentials: true }).then((res) =>{
+    axios.post('http://localhost:3001/logout', { 
+      withCredentials: true 
+    }).then((res) =>{
       console.log(res.data)
     }).then((res) => {
       router.push('/login');

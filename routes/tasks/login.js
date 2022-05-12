@@ -25,10 +25,11 @@ router.post('/', (req, res) => {
     )
     .then((result) => {
       const loggedPass = result.rows[0].password;
-      const userId = result.rows[0].id;
+      const dbUser = result.rows[0].id;
+      console.log(dbUser);
 
       if (password === loggedPass) {
-        req.session.user_id = userId;  
+        req.session.user_id = dbUser;
         res.send(result.rows[0]);
       } else {
         res.status(401).send({message: "A user with this password does not exist, please try again"});
