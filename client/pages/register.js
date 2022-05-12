@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import SecondFooter from "../components/Footer2";
+import { useRouter } from 'next/router';
+import axios from "axios";
 
 
 export default function Register() {
+
+  const [ first_name, setFirstName ] = useState('');
+  const [ last_name, setLastName ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ username, setUserName ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const router = useRouter();
+
+  const handleClick = (event) => {
+
+    event.preventDefault();
+    console.log('first name: ', first_name, 'last name: ', last_name, 'username: ', username, 'password: ', password);
+
+    axios.post('http://localhost:3001/register', {
+      first_name,
+      last_name,
+      email,
+      username,
+      password
+    }).then(res => {
+      console.log('Successfully registered!');
+      router.push('/login');
+    }).catch(err => {
+      console.log('Was not able to register...', err.message);
+    })
+  };
 
     return (
         <>
@@ -99,6 +127,8 @@ export default function Register() {
                         id="first_name"
                         name="first_name"
                         type="first_name"
+                        value={first_name}
+                        onChange={event => setFirstName(event.target.value)}
                         autoComplete="first_name"
                         required
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -113,7 +143,27 @@ export default function Register() {
                         id="last_name"
                         name="last_name"
                         type="last_name"
+                        value={last_name}
+                        onChange={event => setLastName(event.target.value)}
                         autoComplete="last_name"
+                        required
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                      Username
+                    </label>
+                    <div className="mt-1">
+                      <input
+                        id="username"
+                        name="username"
+                        type="username"
+                        value={username}
+                        onChange={event => setUserName(event.target.value)}
+                        autoComplete="username"
                         required
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       />
@@ -129,6 +179,8 @@ export default function Register() {
                         id="email"
                         name="email"
                         type="email"
+                        value={email}
+                        onChange={event => setEmail(event.target.value)}
                         autoComplete="email"
                         required
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -145,6 +197,8 @@ export default function Register() {
                         id="password"
                         name="password"
                         type="password"
+                        value={password}
+                        onChange={event => setPassword(event.target.value)}
                         autoComplete="current-password"
                         required
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
@@ -152,7 +206,7 @@ export default function Register() {
                     </div>
                   </div>
 
-                  <div className="space-y-1">
+                 {/* <div className="space-y-1">
                     <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                       Confirm Password
                     </label>
@@ -166,7 +220,7 @@ export default function Register() {
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       />
                     </div>
-                  </div>
+    </div> */}
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
@@ -191,9 +245,10 @@ export default function Register() {
                   <div>
                     <button
                       type="submit"
+                      onClick={handleClick}
                       className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                      Sign in
+                      Register
                     </button>
                   </div>
                 </form>

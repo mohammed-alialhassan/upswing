@@ -10,6 +10,8 @@ const pool = new Pool(dbParams);
  * @returns Newly Created User
  */
 exports.addUser = function(body) {
+
+  console.log('here is the body: ', body)
   return pool
     .query(
       `
@@ -26,7 +28,7 @@ exports.addUser = function(body) {
       ]
     )
     .then((result) => {
-      return result.rows[0];
+      console.log("Add user was succcessful!");
     })
     .catch((err) => {
       console.log("addUser error = " + err.message);
