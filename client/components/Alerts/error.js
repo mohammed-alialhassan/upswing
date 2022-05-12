@@ -33,8 +33,8 @@ export default function ErrorAlert() {
                     <XCircleIcon className="h-6 w-6 text-red-200" aria-hidden="true" />
                   </div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-white">Successfully saved!</p>
-                    <p className="mt-1 text-sm text-gray-200">Anyone with a link can now view this file.</p>
+                    <p className="text-sm font-medium text-white">Unfortunately...</p>
+                    <p className="mt-1 text-sm text-gray-200">You must be logged in before being able to search.</p>
                   </div>
                   <div className="ml-4 flex-shrink-0 flex">
                     <button

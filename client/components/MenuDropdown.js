@@ -2,12 +2,33 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import { MenuIcon } from '@heroicons/react/solid'
+import axios from 'axios';
+import { useRouter } from 'next/router'
+
+axios.defaults.withCredentials = true;
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function MenuDropDown() {
+
+  const router = useRouter()
+  // OnClick handler used for running the logout and deleting the cookie session
+  // Goal is to have it conditionally render and set up in a different place
+  const deleteCookie = (event) => {
+    event.preventDefault();
+    axios.post('/logout', { withCredentials: true }).then((res) =>{
+      console.log(res.data)
+    }).then((res) => {
+      router.push('/login');
+    //  navigate('/user-login');
+    }).catch((err) => { 
+      console.log(err.message);
+    });
+  };
+
+
   return (
     <Menu as="div" className="relative inline-block visible text-left z-50 py-4">
       <div>
@@ -56,13 +77,13 @@ export default function MenuDropDown() {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  href="#"
+                  href="/login"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  License
+                  Login
                 </a>
               )}
             </Menu.Item>
@@ -71,6 +92,7 @@ export default function MenuDropDown() {
                 {({ active }) => (
                   <button
                     type="submit"
+                    onClick={deleteCookie}
                     className={classNames(
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                       'block w-full text-left px-4 py-2 text-sm'
