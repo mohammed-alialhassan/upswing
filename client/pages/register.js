@@ -16,7 +16,6 @@ export default function Register() {
   const handleClick = (event) => {
 
     event.preventDefault();
-    console.log('first name: ', first_name, 'last name: ', last_name, 'username: ', username, 'password: ', password);
 
     axios.post('http://localhost:3001/register', {
       first_name,
@@ -25,7 +24,6 @@ export default function Register() {
       username,
       password
     }).then(res => {
-      console.log('Successfully registered!');
       router.push('/login');
     }).catch(err => {
       console.log('Was not able to register...', err.message);
@@ -34,7 +32,7 @@ export default function Register() {
 
     return (
         <>
-             <div className="min-h-full flex">
+             <div className="min-h-screen flex">
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>

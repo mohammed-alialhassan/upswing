@@ -11,7 +11,6 @@ const pool = new Pool(dbParams);
  */
 exports.addUser = function(body) {
 
-  console.log('here is the body: ', body)
   return pool
     .query(
       `

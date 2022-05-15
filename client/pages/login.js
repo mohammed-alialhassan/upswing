@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import SecondFooter from "../components/Footer2";
 import axios from "axios";
 import { useRouter } from 'next/router'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -14,16 +16,19 @@ export default function Login() {
 
 
   const handleClick = (event) => {
+
     event.preventDefault();
-    console.log('Email is: ', email,
-    'Password is: ', password);
-  
     axios.post('http://localhost:3001/login', {
       //shortform for email: email and password: password
       email, 
       password
     }).then(res => {
-      router.push('/home');
+      toast.success('You have successfully logged in!');
+
+      setTimeout(() => {
+        router.push('/home');
+      }, 1000)
+      
     }).catch(err => {
       console.log('No luck...', err.message)
     });
@@ -32,8 +37,19 @@ export default function Login() {
     return (
         <>
         <div>
-
             <div className="min-h-screen flex">
+<ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+/>
+
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>

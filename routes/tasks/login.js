@@ -14,7 +14,7 @@ router.use(cookieSession({
 router.post('/', (req, res) => {
   let email = req.body.email;
   let password = req.body.password;
-  console.log(req.body);
+
   return pool
     .query(
       `
@@ -26,7 +26,6 @@ router.post('/', (req, res) => {
     .then((result) => {
       const loggedPass = result.rows[0].password;
       const dbUser = result.rows[0].id;
-      console.log(dbUser);
 
       if (password === loggedPass) {
         req.session.user_id = dbUser;

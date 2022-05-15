@@ -8,6 +8,6 @@ CREATE TABLE stock_time_series_template (
   high VARCHAR(255) NOT NULL,
   low VARCHAR(255) NOT NULL,
   close VARCHAR(255) NOT NULL,
-  adjusted_close VARCHAR(255) NOT NULL,
+  adjusted_close VARCHAR(255),
   volume VARCHAR(255) NOT NULL
 );
