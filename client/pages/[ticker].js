@@ -53,7 +53,7 @@ export default function StockPage() {
       },
      
       title: {
-        text: `McDonald's Stock Price`,
+        text: `McDonald's Stock Price (Daily)`,
         align: 'left'
       },  
     

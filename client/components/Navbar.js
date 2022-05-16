@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useContext } from 'react'
 import { Menu, Popover, Transition } from '@headlessui/react'
 import { tickerIcon } from '@heroicons/react/solid'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
@@ -7,6 +7,7 @@ import SuccessAlert from './Alerts/success'
 import ErrorAlert from './Alerts/error'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
+import GlobalState from './GlobalState'
 import 'react-toastify/dist/ReactToastify.css';
 
 const user = {
@@ -33,6 +34,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
 
+  const [stock, setStock] = useContext(GlobalState);
   const [ ticker, setTicker ] = useState('');
   const [ click, setClick ] = useState(0);
 
@@ -41,17 +43,20 @@ export default function Navbar() {
     setClick(1);
     console.log(ticker);
 
-    setTimeout(() => {
-      
-      setTicker('');
-      setClick(0);
-    }, 2000)
-   
-
     axios.post('http://localhost:3001/stock-data-collector', {
       ticker
-    }).then(res => {
-      console.log(res.data);
+    }).then(result => {
+      // console.log(result.data);
+      
+      axios.post('http://localhost:3001/api/stock-data', {
+        ticker
+      }).then(result => {
+        // console.log(result.data);
+        setTimeout(() => {
+        setStock(result.data);
+        console.log(stock);
+        }, 1500)
+      })
       toast.success('Your search is in process!');
     }).catch(err => {
       toast.error('Sorry! Please login first!');
