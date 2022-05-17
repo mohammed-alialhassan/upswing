@@ -56,10 +56,18 @@ export default function Navbar() {
         ticker: ticker
         }).then(result => {
         console.log(result.data);
+        const tickerData = result.data;
     
        // const stockHolder = [ticker];
 
-       router.push(`/[${ticker}]`);
+       router.push({
+         pathname: `[${ticker}]`,
+        // query: {  }
+        query: { 
+          name: ticker, 
+          data: JSON.stringify(tickerData)
+        }
+       });
   
         }).then((result) => {
           console.log('ticker state at the end: ', ticker,
