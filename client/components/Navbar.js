@@ -9,6 +9,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import GlobalState from './GlobalState'
 import 'react-toastify/dist/ReactToastify.css';
+import { useRouter } from 'next/router';
 
 const user = {
   name: 'Chelsea Hagon',
@@ -36,32 +37,29 @@ export default function Navbar() {
 
   const [stock, setStock] = useContext(GlobalState);
   const [ ticker, setTicker ] = useState('');
+  const router = useRouter();
 
   const handleClick = () => {
 
-    console.log(ticker);
+   /* console.log(ticker);
     setStock(ticker);
-    console.log(stock);
-    /*
+    console.log(stock); */
+  
     axios.post('http://localhost:3001/stock-data-collector', {
       ticker: ticker
     }).then(result => {
       console.log(ticker);
-      console.log(result.data);
+      // console.log(result.data);
 
       setTimeout(() => {
         axios.post('http://localhost:3001/api/stock-data', {
         ticker: ticker
         }).then(result => {
-        // console.log(result.data);
+        console.log(result.data);
     
-        const stockHolder = [ticker];
+       // const stockHolder = [ticker];
 
-        const stock = result.data.tsTickerData;
-
-        stockHolder.push(stock);
-
-        setStock(stockHolder);
+       router.push(`/[${ticker}]`);
   
         }).then((result) => {
           console.log('ticker state at the end: ', ticker,
@@ -73,7 +71,6 @@ export default function Navbar() {
     }).catch(err => {
       toast.error('Sorry! Please login first!');
     })
-  */
   };
 
   return (
