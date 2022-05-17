@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from 'react'
+import React, { Fragment, useState, useContext, useEffect } from 'react'
 import { Menu, Popover, Transition } from '@headlessui/react'
 import { tickerIcon } from '@heroicons/react/solid'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
@@ -36,31 +36,44 @@ export default function Navbar() {
 
   const [stock, setStock] = useContext(GlobalState);
   const [ ticker, setTicker ] = useState('');
-  const [ click, setClick ] = useState(0);
 
   const handleClick = () => {
-    
-    setClick(1);
-    console.log(ticker);
 
+    console.log(ticker);
+    setStock(ticker);
+    console.log(stock);
+    /*
     axios.post('http://localhost:3001/stock-data-collector', {
-      ticker
+      ticker: ticker
     }).then(result => {
-      // console.log(result.data);
-      
-      axios.post('http://localhost:3001/api/stock-data', {
-        ticker
-      }).then(result => {
+      console.log(ticker);
+      console.log(result.data);
+
+      setTimeout(() => {
+        axios.post('http://localhost:3001/api/stock-data', {
+        ticker: ticker
+        }).then(result => {
         // console.log(result.data);
-        setTimeout(() => {
-        setStock(result.data);
-        console.log(stock);
-        }, 1500)
-      })
+    
+        const stockHolder = [ticker];
+
+        const stock = result.data.tsTickerData;
+
+        stockHolder.push(stock);
+
+        setStock(stockHolder);
+  
+        }).then((result) => {
+          console.log('ticker state at the end: ', ticker,
+          'stock at the end: ', stock);
+        })
+      }, 3000)
+
       toast.success('Your search is in process!');
     }).catch(err => {
       toast.error('Sorry! Please login first!');
     })
+  */
   };
 
   return (
