@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useReducer } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import axios from 'axios';
@@ -9,6 +9,27 @@ import { useRouter } from 'next/router';
 export default function StockPage() {
 
   const [ stockData, setStockData ] = useState({});
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const initialState = 'Daily';
+
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'Daily':
+        console.log(state);
+        return state = 'Daily';
+      case 'Weekly':
+        console.log(state);
+        return state = 'Weekly';
+      case 'Monthly':
+        console.log(state);
+        return state = 'Monthly';
+      default:
+       return state = 'Daily';
+    }
+  }
+
+
+
   const router = useRouter()
   let tickerData = JSON.parse(router.query.data);
   const ticker = router.query.name;
@@ -36,32 +57,6 @@ export default function StockPage() {
   for (let index of tickerData['tsTickerData'][ticker+'_ts_monthly']) {
     monthlyDate.push(index.date);
     monthlyPrice.push(index.adjusted_close);
-  }
-
-
-  // console.log(dailyDate);
-  // console.log(dailyPrice);
-   
-
-  const handleClick = (event) => {
-
-    event.preventDefault();
-    axios.post('http://localhost:3001/api/stock-data', {
-    ticker
-  }).then(result => {
-   console.log(result.data);
-    setStockData(result.data);
-    console.log(stockData.tsTickerData.MCD_ts_daily[0].date);
-
-    for (let index of stockData.tsTickerData.MCD_ts_daily) {
-      date.push(index.date);
-    }
-
-    console.log('date: ', date);
-
-  }).catch(err => {
-    console.log('Could not get daily data');
-  })
   }
 
   const config = {
@@ -189,15 +184,42 @@ export default function StockPage() {
     return (
       <div className="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
           <Navbar />
-        <div className="px-4 py-5 bg-teal-400 sm:px-6">
+        <div className="px-4 py-5 bg-teal-400 flex justify-end sm:px-6">
           {/* Content goes here */}
-          <button onClick={handleClick}>click</button>
+        
           
           {/* We use less vertical padding on card headers on desktop than on body sections */}
         </div>
         <div className="px-4 py-5 bg-gray-50 sm:p-6">{/* Content goes here */}
+       <div className='ml-20 flex justify-end'>
+          <span className="relative z-0 inline-flex  shadow-sm  rounded-md">
+      <button
+        type="button"
+        onClick={() => dispatch({ type: 'Daily' })}
+        className="relative inline-flex items-center px-2 py-1 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+      >
+        Daily
+      </button>
+      <button
+        type="button"
+        onClick={() => dispatch({ type: 'Weekly' })}
+        className="-ml-px relative inline-flex items-center px-2 py-1 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+      >
+        Weekly
+      </button>
+      <button
+        type="button"
+        onClick={() => dispatch({ type: 'Monthly' })}
+        className="-ml-px relative inline-flex items-center px-2 py-1 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+      >
+        Monthly
+      </button>
+    </span>
+        </div>
+
         <ReactApexChart options={config.options} series={config.series} type="line" height={600} />
         </div>
+
         <div className="px-4 py-5 bg-gray-50 sm:p-6">{/* Content goes here */}
         <ReactApexChart options={config2.options} series={config2.series} type="line" height={600} />
         </div>
