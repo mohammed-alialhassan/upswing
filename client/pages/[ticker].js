@@ -8,9 +8,23 @@ import CompanyHeading from '../components/CompanyHeading';
 
 /* This example requires Tailwind CSS v2.0+ */
 export default function StockPage() {
-
+  
+  const router = useRouter();
   const [ graph, setGraph ] = useState('Daily');
-  const router = useRouter()
+  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+  
+  // This state and useeffect allows to authenticate whether a guest is logged in or not, 
+  // helps with figuring which navbar to display
+    useEffect(() => {
+      axios.get('http://localhost:3001/landing')
+      .then(result => {
+          if (result.data) {
+            setIsLoggedIn(true); 
+          }
+        }).catch(err => {
+          console.log(err.message);
+      })
+    }, [isLoggedIn]);
 
   let tickerData = JSON.parse(router.query.data);
   const ticker = router.query.name;
@@ -172,7 +186,7 @@ export default function StockPage() {
     { name: 'Total Subscribers', stat: '71,897' },
     { name: 'Overview', stat: `${description}` },
     { name: 'Avg. Click Rate', stat: '24.57%' },
-  ]
+  ] 
 
     return (
       <div className="bg-slate-700 overflow-hidden shadow rounded-lg divide-y divide-gray-200">

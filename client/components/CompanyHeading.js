@@ -34,19 +34,19 @@ export default function CompanyHeading({ description, companyName, companyOvervi
           <div className="relative">
             <div className="absolute inset-0 h-1/2 bg-gray-100" />
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-4xl mx-auto">
+              <div className="max-w-4xl out mx-auto">
                 <dl className="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
-                  <div className="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
+                  <div className="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r hover:shadow-lg hover:shadow-black hover:outline hover:outline-2">
                     <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Total Assets</dt>
                     <dd className="order-1 text-2xl font-extrabold text-green-600"> {asset}</dd>
                   </div>
-                  <div className="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
+                  <div className="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r hover:shadow-lg hover:shadow-black hover:outline hover:outline-2">
                     <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Total Liabilities</dt>
                     <dd className="order-1 text-2xl font-extrabold text-red-600">{liabilities}</dd>
                   </div>
-                  <div className="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
+                  <div className="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l hover:shadow-lg hover:shadow-black hover:outline hover:outline-2">
                     <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Goodwill</dt>
-                    <dd className="order-1 text-2xl font-extrabold text-sky-600"> {goodwill === '$NaN'? ('Not Available') : ({goodwill})}</dd>
+                    <dd className="order-1 text-2xl font-extrabold text-sky-600"> {goodwill === '$NaN'? ('Not Available') : (goodwill)}</dd>
                   </div>
                 </dl>
               </div>

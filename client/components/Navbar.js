@@ -110,9 +110,23 @@ pauseOnHover
                         Search
                       </label>
                       <div className="relative">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
+                        <div className="min-w-full pointer-events-none absolute inset-y-0  pl-3 flex items-center">
                           <tickerIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                          
+                          <div className='min-w-full flex justify-end'>
+
+                          
+                           <button
+        type="button"
+        className=" h-9 px-3 my-5 z-50 pointer-events-auto border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        onClick={handleClick}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+      </button></div>
                         </div>
+                        
                         <input
                           id="ticker"
                           name="ticker"
@@ -122,6 +136,8 @@ pauseOnHover
                           value={ticker}
                           onChange={event => setTicker(event.target.value)}
                         />
+
+                        
                       </div>
                     </div>
                   </div>
@@ -137,13 +153,7 @@ pauseOnHover
                     )}
                   </Popover.Button>
                 </div>
-                <button
-        type="button"
-        className=" h-8 px-3 my-5  border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        onClick={handleClick}
-      >
-        Search
-      </button>
+               
                 <div className='order-last'>
                 
                 <MenuDropDown isLoggedIn={isLoggedIn} /></div>
