@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import SecondNavbar from "../components/SecondNavbar";
 import Footer from "../components/Footer";
 import { NewspaperIcon, PhoneIcon, SupportIcon } from '@heroicons/react/outline'
 import ReactTypingEffect from 'react-typing-effect';
+import axios from "axios";
 
 const supportLinks = [
     {
@@ -38,12 +39,28 @@ const supportLinks = [
 
 /* This example requires Tailwind CSS v2.0+ */
 export default function Home() {
+
+// This state and useeffect allows to authenticate whether a guest is logged in or not, 
+// helps with figuring which navbar to display
+  const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/landing')
+    .then(result => {
+        if (result.data) {
+          setIsLoggedIn(true); 
+        }
+      }).catch(err => {
+        console.log(err.message);
+    })
+  }, [isLoggedIn]);
+
     return (
         <>
-        
         <div className="max-h-screen overflow-y-scroll">
-       {/* <Navbar /> */}
-       <SecondNavbar />
+
+          {isLoggedIn === true? (<Navbar isLoggedIn={isLoggedIn} />) : (<SecondNavbar isLoggedIn={isLoggedIn} />)}
+       
       <div className="relative min-h-screen bg-slate-50">
           
         <div className="absolute inset-0 bg-slate-50">

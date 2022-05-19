@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext, useEffect } from 'react'
+import React from 'react'
 import { Menu, Popover, Transition } from '@headlessui/react'
 import { tickerIcon } from '@heroicons/react/solid'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
@@ -32,9 +32,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function SecondNavbar() {
+export default function SecondNavbar(props) {
 
   const router = useRouter();
+
+  // Passing down isLoggedIn state from homepage
+  let isLoggedIn = props.isLoggedIn;
 
   return (
     <>
@@ -61,9 +64,9 @@ pauseOnFocusLoss
 draggable
 pauseOnHover
 />
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
-                <div className="flex md:absolute md:left-0 md:inset-y-0 lg:static xl:col-span-2">
+            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="relative flex justify-between">
+                <div className="flex md:absolute md:left-0 md:inset-y-0 lg:static ">
                   <div className="flex-shrink-0 flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-24" viewBox="0 0 20 20" fill="currentColor">
                   <a href="/home" className="fill-stone-600 hover:fill-amber-300">
@@ -87,7 +90,7 @@ pauseOnHover
                 </div>
                 <div className='justify-end order-last'>
                 
-                <MenuDropDown /></div>
+                <MenuDropDown isLoggedIn={isLoggedIn} /></div>
               </div>
             </div>
             <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">

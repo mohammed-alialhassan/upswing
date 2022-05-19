@@ -22,7 +22,7 @@ app.use(cookieSession({
 
 // Single Page App Route
 const landingRoute = require('../routes/pages/landing');
-app.use('/', landingRoute);
+app.use('/landing', landingRoute);
 
 /// API Routes
 

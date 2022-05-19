@@ -32,33 +32,23 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+export default function Navbar({ isLoggedIn }) {
 
   const [ ticker, setTicker ] = useState('');
   const router = useRouter();
 
   const handleClick = () => {
-
-   /* console.log(ticker);
-    setStock(ticker);
-    console.log(stock); */
   
     axios.post('http://localhost:3001/stock-data-collector', {
       ticker: ticker
     }).then(result => {
-      console.log(ticker);
-      // console.log(result.data);
 
       setTimeout(() => {
         axios.post('http://localhost:3001/api/stock-data', {
         ticker: ticker
         }).then(result => {
-        console.log(result.data);
         const tickerData = result.data;
-    
-       // const stockHolder = [ticker];
-
-       router.push({
+        router.push({
          pathname: `[${ticker}]`,
         // query: {  }
         query: { 
@@ -67,8 +57,6 @@ export default function Navbar() {
         }
        }, `[${ticker}]`);
   
-        }).then((result) => {
-          console.log('ticker state at the end: ', ticker);
         })
       }, 3000)
 
@@ -158,7 +146,7 @@ pauseOnHover
       </button>
                 <div className='order-last'>
                 
-                <MenuDropDown /></div>
+                <MenuDropDown isLoggedIn={isLoggedIn} /></div>
               </div>
             </div>
 
