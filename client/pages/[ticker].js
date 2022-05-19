@@ -190,7 +190,7 @@ export default function StockPage() {
 
     return (
       <div className="bg-slate-700 overflow-hidden shadow rounded-lg divide-y divide-gray-200">
-          <Navbar />
+          <Navbar isLoggedIn={isLoggedIn} />
 
         <div className="px-4 py-12 min-w-full min-h-full bg-slate-700 flex justify-end sm:px-6">
           {/* Content goes here */}
