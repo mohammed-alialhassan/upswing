@@ -65,7 +65,7 @@ export default function Home() {
           
         <div className="absolute inset-0 mb-56 mt-24 bg-slate-50">
           <img
-            className="w-full h-full object-cover rounded-lg outline outline-1 outline-transparent shadow shadow-black bg-slate-50"
+            className="w-full h-full object-cover rounded-lg outline outline-1 outline-transparent shadow-md shadow-black bg-slate-50"
             src="https://images.unsplash.com/photo-1620228885847-9eab2a1adddc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1373&q=80"
             alt=""
           />
@@ -76,9 +76,9 @@ export default function Home() {
         text={["Welcome  to  UpSwing"]}
         className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl"
       />
-      <h2 className="mt-1 ml-8 text-xl text-indigo-100 max-w-6xl italic font-semibold "> (Founded in 2021) </h2>
+      <h2 className="mt-1 ml-8 text-xl text-gray-300 max-w-6xl italic font-semibold "> (Founded in 2021) </h2>
           <p className="mt-5 ml-8 text-2xl text-slate-50 max-w-6xl">
-          UpSwing come a long way
+          UpSwing came a long way
           from its beginnings as just an idea!
           When the 3 first started out, their passion for innovation and accessibility drove them to find a way to make
           expert level market information, open to all. This was the impetus to turn hard work and inspiration into to a reliable and user-friendly investing resource.
@@ -87,6 +87,28 @@ export default function Home() {
           </p>
         </div>
       </div>
+
+      <div className="relative bg-gray-50 pt-16 overflow-hidden sm:pt-24 lg:pt-32">
+      <div className="mx-auto mb-20 max-w-md px-4 text-center sm:px-6 sm:max-w-3xl lg:px-8 lg:max-w-7xl">
+        <div>
+          <h2 className="text-base mr-2 font-bold tracking-wider text-sky-600 uppercase">The Stock Market</h2>
+          <p className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
+            No experience? No problem.
+          </p>
+          <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
+            We do the leg work for you. With its machine-learning API, UpSwing is designed to give you
+            knowledge of the stock market, at the tip of your fingers.
+          </p>
+        </div>
+        <div className="mt-10 ml-6 -mb-10 sm:-mb-24 lg:-mb-50">
+          <img
+            className="rounded-lg shadow-xl ring-1 ring-black ring-opacity-5"
+            src="https://i.imgur.com/WbV32OE.jpeg"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
 
       <div className="min-h-screen relative bg-gray-900">
       <div className="h-80 w-full absolute bottom-0 xl:inset-0 xl:h-full">

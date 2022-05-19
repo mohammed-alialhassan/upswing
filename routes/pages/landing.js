@@ -13,8 +13,7 @@ router.use(cookieSession({
 
 router.get("/", (req, res) => {
 
-  const dbUser = req.session.user_id;
-  console.log(dbUser); 
+  const dbUser = req.session.user_id; 
 
   if (dbUser) {
     pool
