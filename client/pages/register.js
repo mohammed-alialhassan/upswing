@@ -204,22 +204,6 @@ export default function Register() {
                     </div>
                   </div>
 
-                 {/* <div className="space-y-1">
-                    <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                      Confirm Password
-                    </label>
-                    <div className="mt-1">
-                      <input
-                        id="confirm_password"
-                        name="confirm_password"
-                        type="confirm_password"
-                        autoComplete="current-password"
-                        required
-                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      />
-                    </div>
-    </div> */}
-
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
                       <input
@@ -257,7 +241,7 @@ export default function Register() {
         <div className="hidden lg:block relative w-0 flex-1">
           <img
             className="absolute inset-0 h-full w-full object-cover"
-            src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
+            src="https://images.unsplash.com/photo-1648737965402-2b9c3f3eaa6f?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170"
             alt=""
           />
         </div>

@@ -2,39 +2,39 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import SecondNavbar from "../components/SecondNavbar";
 import Footer from "../components/Footer";
-import { NewspaperIcon, PhoneIcon, SupportIcon } from '@heroicons/react/outline'
+import { NewspaperIcon, IdentificationIcon, MailIcon } from '@heroicons/react/outline'
 import ReactTypingEffect from 'react-typing-effect';
 import axios from "axios";
 
 const supportLinks = [
     {
-      name: 'Sales',
-      href: '#',
+      name: 'First-Time User?',
+      href: '/register',
       description:
-        'Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.',
-      icon: PhoneIcon,
+        'In order to gain access to our features, UpSwing requires you to create a free account. This helps with managing our numbers and monitoring growth',
+      icon: IdentificationIcon,
     },
     {
-      name: 'Technical Support',
-      href: '#',
+      name: 'Already a user?',
+      href: '/login',
       description:
-        'Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.',
-      icon: SupportIcon,
+        `That's great! We love to see you back again and hope your enjoying the app! Click Let's Begin to make your way back to the login page.`,
+      icon: MailIcon,
     },
     {
-      name: 'Media Inquiries',
+      name: 'Need Support?',
       href: '#',
       description:
-        'Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.',
+        `Don't worry, we got you covered. Click Let's Begin to write and send a support inquiry and a member of our team will be in touch shortly.`,
       icon: NewspaperIcon,
     },
   ]
 
   const metrics = [
-    { id: 1, stat: '8K+', emphasis: 'Companies', rest: 'use laoreet amet lacus nibh integer quis.' },
-    { id: 2, stat: '25K+', emphasis: 'Countries around the globe', rest: 'lacus nibh integer quis.' },
-    { id: 3, stat: '98%', emphasis: 'Customer satisfaction', rest: 'laoreet amet lacus nibh integer quis.' },
-    { id: 4, stat: '12M+', emphasis: 'Issues resolved', rest: 'lacus nibh integer quis.' },
+    { id: 1, stat: '3K+', emphasis: 'Companies', rest: `tracked through the integration of Alpha Vantage's API` },
+    { id: 2, stat: '10K+', emphasis: 'Trades a day', rest: 'are made on the market. Why miss out?' },
+    { id: 3, stat: '96%', emphasis: 'Profit rate', rest: 'speaks for the integration and accuracy of our app powered by machine learning to adapt over the long run.' },
+    { id: 4, stat: '2M+', emphasis: 'Logins and page visits', rest: `daily by many of our satisfied users. Don't miss your chance to be one of them!` },
   ]
 
 /* This example requires Tailwind CSS v2.0+ */
@@ -57,29 +57,33 @@ export default function Home() {
 
     return (
         <>
-        <div className="max-h-screen overflow-y-scroll">
+        <div className="max-h-screen bg-slate-50 overflow-y-scroll">
 
           {isLoggedIn === true? (<Navbar isLoggedIn={isLoggedIn} />) : (<SecondNavbar isLoggedIn={isLoggedIn} />)}
        
-      <div className="relative min-h-screen bg-slate-50">
+      <div className="relative mx-auto  min-h-screen max-w-screen-2xl ">
           
-        <div className="absolute inset-0 bg-slate-50">
+        <div className="absolute inset-0 mb-56 mt-24 bg-slate-50">
           <img
-            className="w-full h-full object-cover bg-slate-50"
+            className="w-full h-full object-cover rounded-lg outline outline-1 outline-transparent shadow shadow-black bg-slate-50"
             src="https://images.unsplash.com/photo-1620228885847-9eab2a1adddc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1373&q=80"
             alt=""
           />
-          <div className="absolute inset-0 bg-slate-50 mix-blend-multiply" aria-hidden="true" />
+          <div className="absolute max-w-2xl inset-0 bg-slate-50 mix-blend-multiply" aria-hidden="true" />
         </div>
-        <div className="relative max-w-7xl mx-auto py-24 px-96 sm:py-32 sm:px-96 lg:px-8">
+        <div className="relative max-w-7xl mx-auto text-center py-24 px-96 sm:py-52 sm:px-96 lg:px-8">
         <ReactTypingEffect
         text={["Welcome  to  UpSwing"]}
-        className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
+        className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl"
       />
-
-          <p className="mt-6 text-xl text-indigo-100 max-w-3xl">
-            Mattis amet hendrerit dolor, quisque lorem pharetra. Pellentesque lacus nisi urna, arcu sociis eu. Orci vel
-            lectus nisl eget eget ut consectetur. Sit justo viverra non adipisicing elit distinctio.
+      <h2 className="mt-1 ml-8 text-xl text-indigo-100 max-w-6xl italic font-semibold "> (Founded in 2021) </h2>
+          <p className="mt-5 ml-8 text-2xl text-slate-50 max-w-6xl">
+          UpSwing come a long way
+          from its beginnings as just an idea!
+          When the 3 first started out, their passion for innovation and accessibility drove them to find a way to make
+          expert level market information, open to all. This was the impetus to turn hard work and inspiration into to a reliable and user-friendly investing resource.
+          All over the world, people are taking advantage Upswing and consumers are thrilled to not only be making profit off the AI but also learning about
+          the market and its MANY trends.
           </p>
         </div>
       </div>
@@ -90,7 +94,7 @@ export default function Home() {
           <div className="h-full xl:relative xl:col-start-2">
             <img
               className="h-full w-full object-cover opacity-25 xl:absolute xl:inset-0"
-              src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2830&q=80&sat=-100"
+              src="https://images.unsplash.com/photo-1638913658211-c999de7fe786?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171"
               alt="People working on laptops"
             />
             <div
@@ -102,14 +106,14 @@ export default function Home() {
       </div>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 xl:grid xl:grid-cols-2 xl:grid-flow-col-dense xl:gap-x-8">
         <div className="relative pt-12 pb-64 sm:pt-24 sm:pb-64 xl:col-start-1 xl:pb-24">
-          <h2 className="text-sm font-semibold text-indigo-300 tracking-wide uppercase">Valuable Metrics</h2>
+          <h2 className="text-md font-semibold text-indigo-300 tracking-wide uppercase">Valuable Metrics</h2>
           <p className="mt-3 text-3xl font-extrabold text-white">
-            Get actionable data that will help grow your business
+          Providing valuable metrics to traverse the investment field
           </p>
-          <p className="mt-5 text-lg text-gray-300">
-            Rhoncus sagittis risus arcu erat lectus bibendum. Ut in adipiscing quis in viverra tristique sem. Ornare
-            feugiat viverra eleifend fusce orci in quis amet. Sit in et vitae tortor, massa. Dapibus laoreet amet lacus
-            nibh integer quis. Eu vulputate diam sit tellus quis at.
+          <p className="mt-5 text-xl text-gray-300">
+          Our team has put in many hours and sleepless nights into research. Not only to make our app work
+            but also who may need it the most? Whether you're in the prime of your life or just entering life after
+            highschool, UpSwing WILL help you make profit.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
             {metrics.map((item) => (
@@ -128,20 +132,21 @@ export default function Home() {
 
       <div className="min-h-screen bg-black">
       {/* Header */}
-      <div className="relative pb-32 bg-gray-800">
+      <div className="relative pb-48 bg-gray-800">
         <div className="absolute inset-0">
           <img
             className="w-full h-full object-cover"
-            src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
+            src="https://images.unsplash.com/photo-1652819674544-a284366b1d0d?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=753"
             alt=""
           />
           <div className="absolute inset-0 bg-gray-800 mix-blend-multiply" aria-hidden="true" />
         </div>
         <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">Support</h1>
+          <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">What Happens Next?</h1>
           <p className="mt-6 max-w-3xl text-xl text-gray-300">
-            Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui
-            laoreet diam sed lacus, fames. Dui, amet, nec sit pulvinar.
+            Time to get started on your investing journey! Are you excited? We are!
+            Please refer below to see which path you should follow and once again on behalf of our team, 
+            Welcome to UpSwing!
           </p>
         </div>
       </div>
@@ -158,15 +163,15 @@ export default function Home() {
           {supportLinks.map((link) => (
             <div key={link.name} className="flex flex-col bg-white rounded-2xl shadow-xl">
               <div className="flex-1 relative pt-16 px-6 pb-8 md:px-8">
-                <div className="absolute top-0 p-5 inline-block bg-indigo-600 rounded-xl shadow-lg transform -translate-y-1/2">
+                <div className="absolute top-0 p-5 inline-block bg-sky-500 rounded-xl shadow-lg transform -translate-y-1/2">
                   <link.icon className="h-6 w-6 text-white" aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-medium text-gray-900">{link.name}</h3>
                 <p className="mt-4 text-base text-gray-500">{link.description}</p>
               </div>
               <div className="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
-                <a href={link.href} className="text-base font-medium text-indigo-700 hover:text-indigo-600">
-                  Contact us<span aria-hidden="true"> &rarr;</span>
+                <a href={link.href} className="text-base font-medium text-sky-600 hover:text-indigo-600">
+                  Let's Begin<span aria-hidden="true"> &rarr;</span>
                 </a>
               </div>
             </div>
