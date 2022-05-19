@@ -32,51 +32,9 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+export default function SecondNavbar() {
 
-  const [ ticker, setTicker ] = useState('');
   const router = useRouter();
-
-  const handleClick = () => {
-
-   /* console.log(ticker);
-    setStock(ticker);
-    console.log(stock); */
-  
-    axios.post('http://localhost:3001/stock-data-collector', {
-      ticker: ticker
-    }).then(result => {
-      console.log(ticker);
-      // console.log(result.data);
-
-      setTimeout(() => {
-        axios.post('http://localhost:3001/api/stock-data', {
-        ticker: ticker
-        }).then(result => {
-        console.log(result.data);
-        const tickerData = result.data;
-    
-       // const stockHolder = [ticker];
-
-       router.push({
-         pathname: `[${ticker}]`,
-        // query: {  }
-        query: { 
-          name: ticker, 
-          data: JSON.stringify(tickerData)
-        }
-       }, `[${ticker}]`);
-  
-        }).then((result) => {
-          console.log('ticker state at the end: ', ticker);
-        })
-      }, 3000)
-
-      toast.success('Your search is in process!');
-    }).catch(err => {
-      toast.error('Sorry! Please login first!');
-    })
-  };
 
   return (
     <>
@@ -115,29 +73,7 @@ pauseOnHover
                   </svg>
                   </div>
                 </div>
-                <div className="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6">
-                  <div className="flex items-center px-6 py-4 md:max-w-3xl md:mx-auto lg:max-w-none lg:mx-0 xl:px-0">
-                    <div className="w-full">
-                      <label htmlFor="ticker" className="sr-only">
-                        Search
-                      </label>
-                      <div className="relative">
-                        <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
-                          <tickerIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                        </div>
-                        <input
-                          id="ticker"
-                          name="ticker"
-                          className="block w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                          placeholder="Search..."
-                          type="text"
-                          value={ticker}
-                          onChange={event => setTicker(event.target.value)}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+         
                 <div className="flex items-center md:absolute md:right-0 md:inset-y-0 lg:hidden">
                   {/* Mobile menu button */}
                   <Popover.Button className="-mx-2 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -149,22 +85,11 @@ pauseOnHover
                     )}
                   </Popover.Button>
                 </div>
-                <button
-        type="button"
-        className=" h-8 px-3 my-5  border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        onClick={handleClick}
-      >
-        Search
-      </button>
-                <div className='order-last'>
+                <div className='justify-end order-last'>
                 
                 <MenuDropDown /></div>
               </div>
             </div>
-
-           {/* {ticker !== '' && click !== 0? (
-              <SuccessAlert />
-           ) : (<ErrorAlert />)} */}
             <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
               <div className="max-w-3xl mx-auto px-2 pt-2 pb-3 space-y-1 sm:px-4">
                 {navigation.map((item) => (

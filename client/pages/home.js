@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import SecondNavbar from "../components/SecondNavbar";
 import Footer from "../components/Footer";
 import { NewspaperIcon, PhoneIcon, SupportIcon } from '@heroicons/react/outline'
 import ReactTypingEffect from 'react-typing-effect';
@@ -41,7 +42,8 @@ export default function Home() {
         <>
         
         <div className="max-h-screen overflow-y-scroll">
-        <Navbar />
+       {/* <Navbar /> */}
+       <SecondNavbar />
       <div className="relative min-h-screen bg-slate-50">
           
         <div className="absolute inset-0 bg-slate-50">
