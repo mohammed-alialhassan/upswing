@@ -30,10 +30,22 @@ router.post('/', (req, res) => {
         )
       `
     ).then((results) => {
-      // Data was present in database, send the data object and finish promise without using Alpha Vantage API
+      // Data was present in database
       const tsTickerData = results.rows[0].json_build_object;
-      console.log(tsTickerData); 
-      res.send({ tsTickerData });
+      const currentDate = tsTickerData[ticker+'_ts_daily'][99]['date'];
+      let todayDate = new Date().toISOString().slice(0, 10);
+
+    /* Company's data is in the database. However, this checks to see if the last date 
+       present in the company's data matches the current date and if a new fetch is needed to update the data. */
+      if ( currentDate !== todayDate ) {
+        // Current date is missing from the company's database data => Alpha Vantage API fetch
+        externalDataFetcher(ticker);
+        res.send({message: "Data received by database!"});
+
+      } else {
+        // Send the data object and finish promise without using Alpha Vantage API
+        res.send({ tsTickerData });
+      } 
     })
     .catch((err) => {
       // Company data was not present in database => Alpha Vantage API fetch
