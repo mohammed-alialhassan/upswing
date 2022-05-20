@@ -61,7 +61,7 @@ export default function Home() {
 
           {isLoggedIn === true? (<Navbar isLoggedIn={isLoggedIn} />) : (<SecondNavbar isLoggedIn={isLoggedIn} />)}
        
-      <div className="relative mx-auto  min-h-screen max-w-screen-2xl ">
+      <div className="relative mx-auto  min-h-screen max-w-screen-2xl lg:mx-16 ">
           
         <div className="absolute inset-0 mb-56 mt-24 bg-slate-50">
           <img
@@ -71,13 +71,13 @@ export default function Home() {
           />
           <div className="absolute max-w-2xl inset-0 bg-slate-50 mix-blend-multiply" aria-hidden="true" />
         </div>
-        <div className="relative max-w-7xl mx-auto text-center py-24 px-96 sm:py-52 sm:px-96 lg:px-8">
+        <div className="relative max-w-7xl mx-auto text-center py-24 px-96 sm:py-52 sm:px-96 lg:px-8 lg:py-36">
         <ReactTypingEffect
         text={["Welcome  to  UpSwing"]}
-        className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl"
+        className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-6xl"
       />
-      <h2 className="mt-1 ml-8 text-xl text-gray-300 max-w-6xl italic font-semibold "> (Founded in 2021) </h2>
-          <p className="mt-5 ml-8 text-2xl text-slate-50 max-w-6xl">
+      <h2 className="mt-1 ml-8 text-xl text-gray-300 max-w-6xl italic font-semibold lg:text-lg"> (Founded in 2021) </h2>
+          <p className="mt-5 ml-8 text-2xl text-slate-50 max-w-6xl lg:text-xl">
           UpSwing came a long way
           from its beginnings as just an idea!
           When the 3 first started out, their passion for innovation and accessibility drove them to find a way to make
