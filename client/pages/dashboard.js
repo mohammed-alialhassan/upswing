@@ -39,8 +39,8 @@ export default function Dashboard() {
 
                 {/* We use less vertical padding on card headers on desktop than on body sections */}
             </div>
-            <div className="px-4 py-5 mb-16 bg-white mx-6 outline outline-black outline-1 sm:p-6">{/* Content goes here */}
-                    <div className='ml-20 bg-white flex justify-end'>
+            <div className="px-4 py-5 mb-16 bg-white mx-6 outline outline-black outline-1 sm:p-6 2xl:mb-44 2xl:mt-16 2xl:mx-24">{/* Content goes here */}
+                    <div className=' bg-white flex justify-center 2xl:pb-12'>
                       <Logos firstName={firstName} />
                     </div>
                 </div></>

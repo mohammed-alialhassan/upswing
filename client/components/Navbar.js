@@ -42,27 +42,49 @@ export default function Navbar({ isLoggedIn }) {
         ticker: ticker,
       })
       .then((result) => {
-        setTimeout(() => {
-          axios
-            .post("http://localhost:3001/api/stock-data", {
-              ticker: ticker,
-            })
-            .then((result) => {
-              const tickerData = result.data;
-              router.push(
-                {
-                  pathname: `[${ticker}]`,
-                  // query: {  }
-                  query: {
-                    name: ticker,
-                    data: JSON.stringify(tickerData),
-                  },
-                },
-                `[${ticker}]`
-              );
-            });
-        }, 3000);
 
+     /* If conditional checks to see whether company's stock data is already in our database.
+        IF the data is not present in database, fetch through Alpha Vantage API */
+        if (result.data.message === "Data received by database!") {
+          setTimeout(() => {
+            axios
+              .post("http://localhost:3001/api/stock-data", {
+                ticker: ticker,
+              })
+              .then((result) => {
+                const tickerData = result.data;
+                router.push(
+                  {
+                    pathname: `[${ticker}]`,
+                    // query: {  }
+                    query: {
+                      name: ticker,
+                      data: JSON.stringify(tickerData),
+                    },
+                  },
+                  `[${ticker}]`
+                );
+              });
+          }, 3000);
+          
+      /* The else covers company data that is already present, it fetches from the database
+         and routes directly to ticker page without hitting the Alpha Vantage API */
+        } else {
+          const tickerData = result.data;
+          setTimeout(() => {
+                router.push(
+                  {
+                    pathname: `[${ticker}]`,
+                    // query: {  }
+                    query: {
+                      name: ticker,
+                      data: JSON.stringify(tickerData),
+                    },
+                  },
+                  `[${ticker}]`
+                );
+          }, 1500)
+        }
         toast.success("Your search is in process!");
       })
       .catch((err) => {
