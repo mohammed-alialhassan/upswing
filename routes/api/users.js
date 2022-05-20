@@ -6,7 +6,11 @@ const { dbParams } = require("../../db/params/dbParams");
 const pool = new Pool(dbParams);
 
 router.get(`/`, (req, res) => {
-  pool
+
+  const dbUser = req.session.user_id; 
+
+  if (dbUser) {
+    pool
     .query(
       `
       SELECT * FROM USERS;
@@ -19,6 +23,10 @@ router.get(`/`, (req, res) => {
     .catch((err) => {
       console.log(err.message);
     });
+  } else {
+    res.status(404).send('Cannot GET /');
+  }
+
   return router;
 });
 
