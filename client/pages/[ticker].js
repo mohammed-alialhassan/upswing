@@ -130,7 +130,8 @@ export default function StockPage() {
         categories: weeklyDate,
         title: {
           text: 'Date'
-        }
+        },
+        hideOverlappingLabels: true,
       },
   
       yaxis: {
@@ -153,7 +154,29 @@ export default function StockPage() {
           selection: true,
         },
       },
-  
+
+      chart: {
+        animations: {
+            enabled: true,
+            easing: 'easeinout',
+            speed: 800,
+            animateGradually: {
+                enabled: true,
+                delay: 150
+            },
+            dynamicAnimation: {
+                enabled: true,
+                speed: 350
+            }
+        }
+    },
+    forecastDataPoints: {
+      count: 0,
+      fillOpacity: 0.5,
+      strokeWidth: 2,
+      dashArray: 6,
+    },
+    
       dataLabels: {
         enabled: true
       },   
