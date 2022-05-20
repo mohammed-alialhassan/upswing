@@ -28,9 +28,7 @@ export default function StockPage() {
 
   let tickerData = JSON.parse(router.query.data);
   const ticker = router.query.name;
-  console.log(tickerData);
-  console.log('BOOOM MF!!!!!!!!!!: ', tickerData['tsTickerData'][ticker+'_company_overview']);
-
+  
   let companyName = tickerData['tsTickerData'][ticker+'_company_overview'][0]['name'];
   let description = tickerData['tsTickerData'][ticker+'_company_overview'][0]['description'];
   let companyOverview = tickerData['tsTickerData'][ticker+'_company_overview'][0];

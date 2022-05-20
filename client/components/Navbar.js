@@ -181,7 +181,7 @@ export default function Navbar({ isLoggedIn }) {
                   </Popover.Button>
                 </div>
 
-                <div className="order-last">
+                <div className="order-last lg:mr-6">
                   <MenuDropDown isLoggedIn={isLoggedIn} />
                 </div>
               </div>

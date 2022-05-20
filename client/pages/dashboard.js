@@ -12,19 +12,21 @@ export default function Dashboard() {
   
   const router = useRouter();
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+  const [ firstName, setFirstName ] = useState('');
   
   // This state and useeffect allows to authenticate whether a guest is logged in or not, 
   // helps with figuring which navbar to display
     useEffect(() => {
       axios.get('http://localhost:3001/landing')
       .then(result => {
-          if (result.data) {
+          if (result.data.user) {
             setIsLoggedIn(true); 
+            setFirstName(result.data.first_name);
           }
         }).catch(err => {
           console.log(err.message);
       })
-    }, [isLoggedIn]);
+    }, [isLoggedIn, firstName]);
 
     return (
       <div className="bg-slate-700 overflow-hidden shadow rounded-lg divide-y divide-gray-200">
@@ -37,9 +39,9 @@ export default function Dashboard() {
 
                 {/* We use less vertical padding on card headers on desktop than on body sections */}
             </div>
-            <div className="px-4 py-5 mb-10 bg-gray-50 mx-6 outline outline-black outline-1 sm:p-6">{/* Content goes here */}
-                    <div className='ml-20 bg-gray-50  flex justify-end'>
-                      <Logos />
+            <div className="px-4 py-5 mb-16 bg-white mx-6 outline outline-black outline-1 sm:p-6">{/* Content goes here */}
+                    <div className='ml-20 bg-white flex justify-end'>
+                      <Logos firstName={firstName} />
                     </div>
                 </div></>
         ) : (

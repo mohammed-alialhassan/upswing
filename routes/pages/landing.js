@@ -23,7 +23,10 @@ router.get("/", (req, res) => {
         `
       )
       .then(result => {
-        res.send(true);
+       const first_name = result.rows[0].first_name;
+       const load = { user: true, first_name }
+       // console.log(result.rows[0].first_name);
+        res.send(load);
       })
       .catch((err) => {
         res.send(false); 

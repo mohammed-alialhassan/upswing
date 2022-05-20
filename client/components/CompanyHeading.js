@@ -1,13 +1,11 @@
 /* This example requires Tailwind CSS v2.0+ */
 export default function CompanyHeading({ description, companyName, companyOverview, companyBalanceSheet, ticker }) {
 
-    console.log(companyBalanceSheet);
-    console.log(companyOverview);
-
     // Create our number formatter.
     const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
+    maximumFractionDigits: 0
   
     // These options are needed to round to whole numbers if that's what you want.
     //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
