@@ -1,0 +1,1 @@
+INSERT INTO stock_time_series_template ( date, open, low, high, close, adjusted_close, volume) VALUES ('2022-04-21', '5.00', '3.50', '6.75', '5.10', '5.12', '3000045.23');

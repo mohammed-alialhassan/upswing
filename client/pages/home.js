@@ -61,7 +61,7 @@ export default function Home() {
 
           {isLoggedIn === true? (<Navbar isLoggedIn={isLoggedIn} />) : (<SecondNavbar isLoggedIn={isLoggedIn} />)}
        
-      <div className="relative mx-auto  min-h-screen max-w-screen-2xl lg:mx-16 ">
+      <div className="relative mx-auto  min-h-screen max-w-screen-4xl lg:mx-16 ">
           
         <div className="absolute inset-0 mb-56 mt-24 bg-slate-50">
           <img

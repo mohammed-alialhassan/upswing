@@ -32,12 +32,18 @@ function classNames(...classes) {
 export default function Navbar({ isLoggedIn }) {
   const [ticker, setTicker] = useState("");
   const [ clicked, setClicked ] = useState(false);
+  const [ openModal, setOpenModal ] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
 
     if (clicked) {
 
+      if (openModal) {
+      toast.warn('Once the clock is done spinning, the search feature will be ready to use again.')
+    } else {
+
+    
     console.log(clicked, ticker);
 
     axios
@@ -79,7 +85,6 @@ export default function Navbar({ isLoggedIn }) {
                 router.push(
                   {
                     pathname: `[${ticker}]`,
-                    // query: {  }
                     query: {
                       name: ticker,
                       data: JSON.stringify(tickerData),
@@ -87,16 +92,22 @@ export default function Navbar({ isLoggedIn }) {
                   },
                   `[${ticker}]`
                 );
-          }, 1500)
+          }, 2500)
         }
         toast.success("Your search is in process!");
       })
       .catch((err) => {
         toast.error("Sorry! Please login first!");
       });
-      setClicked(false);
+
+      setTicker('');
+      setTimeout(() => {
+        setOpenModal(false);
+        setClicked(false);
+      }, 18000)
     }
-  });
+  }   
+}, [clicked, openModal]);
 
   return (
     <>
@@ -114,7 +125,7 @@ export default function Navbar({ isLoggedIn }) {
           <>
             <ToastContainer
               position="top-right"
-              autoClose={5000}
+              autoClose={8000}
               hideProgressBar={false}
               newestOnTop={false}
               closeOnClick
@@ -161,10 +172,21 @@ export default function Navbar({ isLoggedIn }) {
                           />
 
                           <div className="min-w-full flex justify-end">
-                            <button
+                            { clicked? 
+                              <button
+                                type="button"
+                                className=" h-9 px-3 my-5 z-50 pointer-events-auto border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                onClick={() => setOpenModal(true)}
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" class="animate-spin h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                              </button>
+                                : 
+                              <button
                               type="button"
                               className=" h-9 px-3 my-5 z-50 pointer-events-auto border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                              onClick={() => { if (!clicked) { setClicked(true); } else { null} }}
+                              onClick={() => setClicked(true)}
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -181,6 +203,8 @@ export default function Navbar({ isLoggedIn }) {
                                 />
                               </svg>
                             </button>
+                            }
+                            
                           </div>
                         </div>
 

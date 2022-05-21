@@ -36,15 +36,12 @@ router.post('/', (req, res) => {
       let todayDate = new Date().toISOString().slice(0, 10);
 
       let date = new Date();
-      console.log(date);
       let weekday = date.getDay();
-      console.log(weekday);
 
     /* Company's data is in the database. However, this checks to see if the last date 
        present in the company's data matches the current date and if a new fetch is needed to update the data. */
       if ( currentDate !== todayDate) {
         if ( weekday === 6 || weekday === 0 ) {
-          console.log('new check working!')
           res.send({ tsTickerData });
         } else {
           // Current date is missing from the company's database data => Alpha Vantage API fetch
