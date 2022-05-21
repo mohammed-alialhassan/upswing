@@ -22,11 +22,6 @@ export default function AccountSettings() {
           if (result.data.user) {
             setIsLoggedIn(true); 
             setAccountInfo(result.data);
-         /*   setFirstName(result.data.first_name);
-            setLastName(result.data.last_name);
-            setPhoneNumber(result.data.phone_number);
-            setUserName(result.data.phone_number);
-            setEmail(result.data.email); */
           }
         }).catch(err => {
           console.log(err.message);
@@ -35,8 +30,7 @@ export default function AccountSettings() {
 
     return (
       <div className="bg-slate-700 overflow-hidden shadow rounded-lg">
-          { isLoggedIn? (
-          <>
+          
           <Navbar isLoggedIn={isLoggedIn} />
           <div className="px-4 py-6 min-w-full min-h-full bg-slate-700 flex justify-end sm:px-6">
                 {/* Content goes here */} 
@@ -48,13 +42,7 @@ export default function AccountSettings() {
                     <div className=' bg-white flex mx-48 justify-center 2xl:pb-12'>
                       <AccountInfo accountInfo={accountInfo} />
                     </div>
-                </div></>
-        ) : (
-          <>
-          <SecondNavbar />
-          <NotFound />
-          </>
-        )}
+                </div>
         <div >
           {/* Content goes here */}
           <Footer />

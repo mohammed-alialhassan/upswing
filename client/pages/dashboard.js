@@ -30,8 +30,6 @@ export default function Dashboard() {
 
     return (
       <div className="bg-slate-700 overflow-hidden shadow rounded-lg divide-y divide-gray-200">
-          { isLoggedIn? (
-          <>
           <Navbar isLoggedIn={isLoggedIn} />
           <div className="px-4 py-6 min-w-full min-h-full bg-slate-700 flex justify-end sm:px-6">
                 {/* Content goes here */}
@@ -43,13 +41,7 @@ export default function Dashboard() {
                     <div className=' bg-white flex justify-center 2xl:pb-12'>
                       <Logos firstName={firstName} />
                     </div>
-                </div></>
-        ) : (
-          <>
-          <SecondNavbar />
-          <NotFound />
-          </>
-        )}
+                </div>
         <div >
           {/* Content goes here */}
           <Footer />
