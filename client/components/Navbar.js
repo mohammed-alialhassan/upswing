@@ -31,9 +31,15 @@ function classNames(...classes) {
 
 export default function Navbar({ isLoggedIn }) {
   const [ticker, setTicker] = useState("");
+  const [ clicked, setClicked ] = useState(false);
   const router = useRouter();
 
-  const handleClick = () => {
+  useEffect(() => {
+
+    if (clicked) {
+
+    console.log(clicked, ticker);
+
     axios
       .post("http://localhost:3001/stock-data-collector", {
         ticker: ticker,
@@ -67,6 +73,7 @@ export default function Navbar({ isLoggedIn }) {
       /* The else covers company data that is already present, it fetches from the database
          and routes directly to ticker page without hitting the Alpha Vantage API */
         } else {
+          console.log('still working!!!!')
           const tickerData = result.data;
           setTimeout(() => {
                 router.push(
@@ -87,7 +94,9 @@ export default function Navbar({ isLoggedIn }) {
       .catch((err) => {
         toast.error("Sorry! Please login first!");
       });
-  };
+      setClicked(false);
+    }
+  });
 
   return (
     <>
@@ -155,7 +164,7 @@ export default function Navbar({ isLoggedIn }) {
                             <button
                               type="button"
                               className=" h-9 px-3 my-5 z-50 pointer-events-auto border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                              onClick={handleClick}
+                              onClick={() => { if (!clicked) { setClicked(true); } else { null} }}
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
