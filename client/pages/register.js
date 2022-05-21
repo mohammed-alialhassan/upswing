@@ -9,6 +9,7 @@ export default function Register() {
   const [ first_name, setFirstName ] = useState('');
   const [ last_name, setLastName ] = useState('');
   const [ email, setEmail ] = useState('');
+  const [ phone_number, setPhoneNumber ] = useState('');
   const [ username, setUserName ] = useState('');
   const [ password, setPassword ] = useState('');
   const router = useRouter();
@@ -21,6 +22,7 @@ export default function Register() {
       first_name,
       last_name,
       email,
+      phone_number,
       username,
       password
     }).then(res => {
@@ -144,6 +146,24 @@ export default function Register() {
                         value={last_name}
                         onChange={event => setLastName(event.target.value)}
                         autoComplete="last_name"
+                        required
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                      Phone Number
+                    </label>
+                    <div className="mt-1">
+                      <input
+                        id="phone_number"
+                        name="phone_number"
+                        type="phone_number"
+                        value={phone_number}
+                        onChange={event => setPhoneNumber(event.target.value)}
+                        autoComplete="phone_number"
                         required
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       />

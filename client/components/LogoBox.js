@@ -12,11 +12,6 @@ export default function Logos(props) {
   const router = useRouter();
   let firstName = props.firstName;
 
- /* const appleClick = () => {
-    setTicker('AAPL');
-    console.log('ticker is: ', ticker);
-  } */
-
   useEffect(() => {
     if (ticker !== "" || null) {
         axios

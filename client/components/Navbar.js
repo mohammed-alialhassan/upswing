@@ -1,10 +1,7 @@
 import React, { Fragment, useState, useContext, useEffect } from "react";
 import { Menu, Popover, Transition } from "@headlessui/react";
-import { tickerIcon } from "@heroicons/react/solid";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import MenuDropDown from "./MenuDropdown";
-import SuccessAlert from "./Alerts/success";
-import ErrorAlert from "./Alerts/error";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
