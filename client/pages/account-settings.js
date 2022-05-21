@@ -31,7 +31,7 @@ export default function AccountSettings() {
         }).catch(err => {
           console.log(err.message);
       })
-    }, [isLoggedIn, accountInfo.username]);
+    }, [isLoggedIn]);
 
     return (
       <div className="bg-slate-700 overflow-hidden shadow rounded-lg">
