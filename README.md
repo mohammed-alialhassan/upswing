@@ -1,5 +1,5 @@
 
-Welcome to UpSwing! 
+## Welcome to UpSwing! 
 
 An app that allows users to search for stock data. Our goal was to make an easy and engaging way of tracking various companies and its current/future trends. There's a lot of features that are being planned for future implementation (ex. mobile support) so expect updates! And on the behalf of our team, thank you for your support.
 
@@ -32,7 +32,6 @@ An app that allows users to search for stock data. Our goal was to make an easy 
 8. To test if it's connected, go to the root folder of the repository and enter 'npm run db:reset'
    This is the reset database command and if the database/user along .env variables have been inputed correctly 
    you should expect this outcome:
-
 
    Now that both of those are taken care of, 1 terminal go into the root folder and enter:
    'npm run server' to power on the server
