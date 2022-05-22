@@ -2,9 +2,9 @@ import React, { useState, useReducer, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import axios from 'axios';
-import ReactApexChart from 'react-ApexCharts';
 import { useRouter } from 'next/router';
 import CompanyHeading from '../components/CompanyHeading';
+import dynamic from 'next/dynamic'
 
 /* This example requires Tailwind CSS v2.0+ */
 export default function StockPage() {
@@ -12,6 +12,8 @@ export default function StockPage() {
   const router = useRouter();
   const [ graph, setGraph ] = useState('Daily');
   const [ isLoggedIn, setIsLoggedIn ] = useState(false);
+
+  const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
   
   // This state and useeffect allows to authenticate whether a guest is logged in or not, 
   // helps with figuring which navbar to display
@@ -210,52 +212,55 @@ export default function StockPage() {
   ] 
 
     return (
+      
       <div className="bg-slate-700 overflow-hidden shadow rounded-lg divide-y divide-gray-200">
           <Navbar isLoggedIn={isLoggedIn} />
+{(typeof window !== 'undefined') &&
+        <><div className="px-4 py-12 min-w-full min-h-full bg-slate-700 flex justify-end sm:px-6">
+            {/* Content goes here */}
+            <CompanyHeading description={description} companyName={companyName} companyOverview={companyOverview} companyBalanceSheet={companyBalanceSheet} ticker={ticker} />
 
-        <div className="px-4 py-12 min-w-full min-h-full bg-slate-700 flex justify-end sm:px-6">
-          {/* Content goes here */}
-          <CompanyHeading description={description} companyName={companyName} companyOverview={companyOverview} companyBalanceSheet={companyBalanceSheet} ticker={ticker} />
-          
-          {/* We use less vertical padding on card headers on desktop than on body sections */}
-        </div>
-        <div className="px-4 py-5 mt-5 mb-10 bg-gray-50 mx-6 outline outline-black outline-1 sm:p-6">{/* Content goes here */}
-       <div className=' bg-gray-50  flex justify-center sm:text-sm lg:justify-end sm:ml-0 lg:ml-20 xl:ml-20 2xl:ml-20'>
-          <span className="relative z-0 inline-flex  shadow-sm  rounded-md">
-      <button
-        type="button"
-        onClick={() => setGraph('Daily')}
-        className="relative inline-flex items-center px-2 py-1 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-      >
-        Daily
-      </button>
-      <button
-        type="button"
-        onClick={() => setGraph('Weekly')}
-        className="-ml-px relative inline-flex items-center px-2 py-1 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-      >
-        Weekly
-      </button>
-      <button
-        type="button"
-        onClick={() => setGraph('Monthly')}
-        className="-ml-px relative inline-flex items-center px-2 py-1 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
-      >
-        Monthly
-      </button>
-    </span>
-        </div>
-        {graph === 'Daily'? <ReactApexChart options={config.options} series={config.series} type="line" height={600} /> : 
-        graph === 'Weekly'? <ReactApexChart options={config2.options} series={config2.series} type="line" height={600} /> :
-        graph === 'Monthly'? <ReactApexChart options={config3.options} series={config3.series} type="line" height={600} /> : null}
-        
-        </div>
-        
-        <div >
-          {/* Content goes here */}
-          <Footer />
-          {/* We use less vertical padding on card footers at all sizes than on headers or body sections */}
-        </div>
-      </div>
+            {/* We use less vertical padding on card headers on desktop than on body sections */}
+          </div><div className="px-4 py-5 mt-5 mb-10 bg-gray-50 mx-6 outline outline-black outline-1 sm:p-6">{/* Content goes here */}
+              <div className=' bg-gray-50  flex justify-center sm:text-sm lg:justify-end sm:ml-0 lg:ml-20 xl:ml-20 2xl:ml-20'>
+                <span className="relative z-0 inline-flex  shadow-sm  rounded-md">
+                  <button
+                    type="button"
+                    onClick={() => setGraph('Daily')}
+                    className="relative inline-flex items-center px-2 py-1 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                  >
+                    Daily
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setGraph('Weekly')}
+                    className="-ml-px relative inline-flex items-center px-2 py-1 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                  >
+                    Weekly
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setGraph('Monthly')}
+                    className="-ml-px relative inline-flex items-center px-2 py-1 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                  >
+                    Monthly
+                  </button>
+                </span>
+              </div>
+
+              <div className="mixed-chart">
+
+                {graph === 'Daily' ? <Chart options={config.options} series={config.series} type="line" height={600} /> :
+                  graph === 'Weekly' ? <Chart options={config2.options} series={config2.series} type="line" height={600} /> :
+                    graph === 'Monthly' ? <Chart options={config3.options} series={config3.series} type="line" height={600} /> : <Chart options={config.options} series={config.series} type="line" height={600} />}
+
+              </div>
+
+            </div><div>
+              {/* Content goes here */}
+              <Footer />
+              {/* We use less vertical padding on card footers at all sizes than on headers or body sections */}
+            </div></>
+     } </div>
     )
   }

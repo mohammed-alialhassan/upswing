@@ -134,7 +134,7 @@ export default function Home() {
           </p>
           <p className="mt-5 text-xl text-gray-300">
           Our team has put in many hours and sleepless nights into research. Not only to make our app work
-            but also who may need it the most? Whether you're in the prime of your life or just entering life after
+            but also who may need it the most? Whether youre in the prime of your life or just entering life after
             highschool, UpSwing WILL help you make profit.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
@@ -193,7 +193,7 @@ export default function Home() {
               </div>
               <div className="p-6 bg-gray-50 rounded-bl-2xl rounded-br-2xl md:px-8">
                 <a href={link.href} className="text-base font-medium text-sky-600 hover:text-indigo-600">
-                  Let's Begin<span aria-hidden="true"> &rarr;</span>
+                  Lets Begin<span aria-hidden="true"> &rarr;</span>
                 </a>
               </div>
             </div>
