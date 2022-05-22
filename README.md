@@ -3,6 +3,12 @@
 
 An app that allows users to search for stock data. Our goal was to make an easy and engaging way of tracking various companies and its current/future trends. There's a lot of features that are being planned for future implementation (ex. mobile support) so expect updates! And on the behalf of our team, thank you for your support.
 
+
+
+https://user-images.githubusercontent.com/88508812/169675363-1f0ef3eb-4ef9-40db-b9e5-e68511387112.mov
+
+
+
 ## Getting Started 
 
 1. Clone the repository through your CLI or through Github Desktop.
