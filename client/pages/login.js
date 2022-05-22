@@ -22,7 +22,7 @@ export default function Login() {
         toast.success("You have successfully logged in!");
 
         setTimeout(() => {
-          router.push("/home");
+          router.push("/dashboard");
         }, 1000);
       })
       .catch((err) => {
