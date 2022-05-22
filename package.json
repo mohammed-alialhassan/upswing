@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon server/index.js",
-    "client": "cd client && npm start",
+    "client": "cd client && npm run dev",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "db:reset": "node bin/resetdb.js"
