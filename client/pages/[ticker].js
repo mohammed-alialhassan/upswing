@@ -220,7 +220,7 @@ export default function StockPage() {
           {/* We use less vertical padding on card headers on desktop than on body sections */}
         </div>
         <div className="px-4 py-5 mt-5 mb-10 bg-gray-50 mx-6 outline outline-black outline-1 sm:p-6">{/* Content goes here */}
-       <div className='ml-20 bg-gray-50  flex justify-end'>
+       <div className=' bg-gray-50  flex justify-center sm:text-sm lg:justify-end sm:ml-0 lg:ml-20 xl:ml-20 2xl:ml-20'>
           <span className="relative z-0 inline-flex  shadow-sm  rounded-md">
       <button
         type="button"

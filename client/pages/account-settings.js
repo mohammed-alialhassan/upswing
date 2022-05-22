@@ -39,7 +39,7 @@ export default function AccountSettings() {
                 {/* We use less vertical padding on card headers on desktop than on body sections */}
             </div>
             <div className="px-4 py-5  mb-16 mx-6 sm:p-6 2xl:mb-44 2xl:mt-16 2xl:mx-24">{/* Content goes here */}
-                    <div className=' bg-white flex mx-48 justify-center 2xl:pb-12'>
+                    <div className=' bg-white flex lg:mx-48  justify-center 2xl:pb-12'>
                       <AccountInfo accountInfo={accountInfo} />
                     </div>
                 </div>

@@ -43,9 +43,6 @@ export default function Navbar({ isLoggedIn }) {
       toast.warn('Once the clock is done spinning, the search feature will be ready to use again.')
     } else {
 
-    
-    console.log(clicked, ticker);
-
     axios
       .post("http://localhost:3001/stock-data-collector", {
         ticker: ticker,
@@ -79,7 +76,6 @@ export default function Navbar({ isLoggedIn }) {
       /* The else covers company data that is already present, it fetches from the database
          and routes directly to ticker page without hitting the Alpha Vantage API */
         } else {
-          console.log('still working!!!!')
           const tickerData = result.data;
           setTimeout(() => {
                 router.push(
@@ -160,7 +156,7 @@ export default function Navbar({ isLoggedIn }) {
                 </div>
                 <div className="min-w-0 flex-1  md:px-8 lg:px-0 xl:col-span-6">
                   <div className="flex items-center px-6 py-4 md:max-w-3xl md:mx-auto lg:max-w-none lg:mx-0 xl:px-0">
-                    <div className="w-full ml-80">
+                    <div className="w-full ml-80 lg:mx-32 lg:ml-20 xl:ml-80 xl:mx-0">
                       <label htmlFor="ticker" className="sr-only">
                         Search
                       </label>
