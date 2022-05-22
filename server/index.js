@@ -3,20 +3,26 @@ const express    = require('express');
 const cors       = require('cors');
 const helmet     = require("helmet");
 const bodyParser = require('body-parser');
+const cookieSession = require('cookie-session');
 
 const app  = express();
-const PORT = process.env.PORT;
+const PORT = process.env.SERVER_PORT;
 
-app.use(cors());
+app.use(cors({origin: 'http://localhost:3000', credentials: true}));
 app.use(helmet());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json()); 
+app.use(cookieSession({
+  name: 'UpSwing',
+  keys: ['upswing is the way and key']
+}));
 
 /// Pages
 
 // Single Page App Route
 const landingRoute = require('../routes/pages/landing');
-app.use('/', landingRoute);
+app.use('/landing', landingRoute);
 
 /// API Routes
 
@@ -41,6 +47,10 @@ app.use('/register', registerRoute);
 // Login Route
 const loginRoute = require('../routes/tasks/login');
 app.use('/login', loginRoute);
+
+// Logout Route 
+const logoutRoute = require('../routes/tasks/logout');
+app.use('/logout', logoutRoute);
 
 /// Server Listener
 

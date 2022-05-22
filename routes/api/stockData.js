@@ -22,6 +22,7 @@ router.post(`/`, (req, res) => {
     )
     .then((results) => {
       const tsTickerData = results.rows[0].json_build_object;
+      console.log(tsTickerData);
       res.send({ tsTickerData });
     })
     .catch((err) => {

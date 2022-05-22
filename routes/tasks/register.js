@@ -22,6 +22,7 @@ router.post('/', (req, res) => {
       if (result.rows[0]) {
         res.status(401).send({message: 'A user with this email or username already exists.'});
       } else {
+        res.status(200).send({message: 'User has been successfully registered.'});
         addUser(req.body);
       }
     })

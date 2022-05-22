@@ -23,7 +23,6 @@ exports.createTsDaily = function(ticker) {
         high VARCHAR(255) NOT NULL,
         low VARCHAR(255) NOT NULL,
         close VARCHAR(255) NOT NULL,
-        adjusted_close VARCHAR(255) NOT NULL,
         volume VARCHAR(255) NOT NULL
       );
       `
@@ -35,13 +34,13 @@ exports.createTsDaily = function(ticker) {
  * @param {{date: string, open: string, high: string, low: string, close: string, adjustedClose: string, volume: string}}
  * @return {Promise<{}>} A promise to the user.
  */
-exports.addTsDaily = function(ticker, date, open, high, low, close, adjustedClose, volume) {
+exports.addTsDaily = function(ticker, date, open, high, low, close, volume) {
 
   return pool
     .query(
       `
-      INSERT INTO ${ticker}_ts_daily (date, open, high, low, close, adjusted_close, volume)
-      VALUES ($1, $2, $3, $4, $5, $6, $7)
+      INSERT INTO ${ticker}_ts_daily (date, open, high, low, close, volume)
+      VALUES ($1, $2, $3, $4, $5, $6)
       RETURNING *;
       `,
       [
@@ -50,7 +49,6 @@ exports.addTsDaily = function(ticker, date, open, high, low, close, adjustedClos
         high,
         low,
         close,
-        adjustedClose,
         volume
       ]
     )
