@@ -32,6 +32,7 @@ An app that allows users to search for stock data. Our goal was to make an easy 
 8. To test if it's connected, go to the root folder of the repository and enter 'npm run db:reset'
    This is the reset database command and if the database/user along .env variables have been inputed correctly 
    you should expect this outcome:
+<img width="692" alt="Screen Shot 2022-05-21 at 9 57 39 PM" src="https://user-images.githubusercontent.com/88508812/169675139-41212225-d63e-470b-b30b-b52a470f1816.png">
 
 
    Now that both of those are taken care of, 1 terminal go into the root folder and enter:
