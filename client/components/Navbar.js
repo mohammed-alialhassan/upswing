@@ -60,14 +60,13 @@ export default function Navbar({ isLoggedIn }) {
                     const tickerData = result.data;
                     router.push(
                       {
-                        pathname: `[${ticker}]`,
-                        // query: {  }
+                        pathname: 'stock',
                         query: {
                           name: ticker,
                           data: JSON.stringify(tickerData),
                         },
                       },
-                      `[${ticker}]`
+                      'stock'
                     );
                   });
               }, 3000);
@@ -79,13 +78,13 @@ export default function Navbar({ isLoggedIn }) {
               setTimeout(() => {
                 router.push(
                   {
-                    pathname: `[${ticker}]`,
+                    pathname: 'stock',
                     query: {
                       name: ticker,
                       data: JSON.stringify(tickerData),
                     },
                   },
-                  `[${ticker}]`
+                  'stock'
                 );
               }, 2500);
             }
@@ -245,9 +244,6 @@ export default function Navbar({ isLoggedIn }) {
               </div>
             </div>
 
-            {/* {ticker !== '' && click !== 0? (
-              <SuccessAlert />
-           ) : (<ErrorAlert />)} */}
             <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
               <div className="max-w-3xl mx-auto px-2 pt-2 pb-3 space-y-1 sm:px-4">
                 {navigation.map((item) => (

@@ -45,3 +45,7 @@ https://user-images.githubusercontent.com/88508812/169675363-1f0ef3eb-4ef9-40db-
 
    On a seoncd terminal, enter 'npm run client' to power the client and that's it!
    Enjoy UpSwing!
+
+## Home Page
+
+## User functionality

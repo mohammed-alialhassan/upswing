@@ -39,7 +39,7 @@ export default function MenuDropDown(props) {
   return (
     <Menu
       as="div"
-      className="relative inline-block visible text-left z-50 py-4"
+      className="relative inline-block visible text-left z-50 py-4 lg:mr-6"
     >
       <div>
         <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-3 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">

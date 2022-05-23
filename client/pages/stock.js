@@ -28,8 +28,15 @@ export default function StockPage() {
       })
     }, [isLoggedIn]);
 
+    if (typeof window === 'undefined') {
+      console.log('window is defined.');
+
+    }
+       const ticker = router.query.name;
+  
+  console.log(ticker);
   let tickerData = JSON.parse(router.query.data);
-  const ticker = router.query.name;
+  
   
   let companyName = tickerData['tsTickerData'][ticker+'_company_overview'][0]['name'];
   let description = tickerData['tsTickerData'][ticker+'_company_overview'][0]['description'];
@@ -209,7 +216,9 @@ export default function StockPage() {
     { name: 'Total Subscribers', stat: '71,897' },
     { name: 'Overview', stat: `${description}` },
     { name: 'Avg. Click Rate', stat: '24.57%' },
-  ] 
+  ]
+
+ 
 
     return (
       
