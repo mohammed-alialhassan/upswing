@@ -6,6 +6,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const user = {
   name: "Chelsea Hagon",
@@ -31,79 +32,77 @@ function classNames(...classes) {
 
 export default function Navbar({ isLoggedIn }) {
   const [ticker, setTicker] = useState("");
-  const [ clicked, setClicked ] = useState(false);
-  const [ openModal, setOpenModal ] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-
     if (clicked) {
-
       if (openModal) {
-      toast.warn('Once the clock is done spinning, the search feature will be ready to use again.')
-    } else {
-
-    axios
-      .post("http://localhost:3001/stock-data-collector", {
-        ticker: ticker,
-      })
-      .then((result) => {
-
-     /* If conditional checks to see whether company's stock data is already in our database.
+        toast.warn(
+          "Once the clock is done spinning, the search feature will be ready to use again."
+        );
+      } else {
+        axios
+          .post("http://localhost:3001/stock-data-collector", {
+            ticker: ticker,
+          })
+          .then((result) => {
+            /* If conditional checks to see whether company's stock data is already in our database.
         IF the data is not present in database, fetch through Alpha Vantage API */
-        if (result.data.message === "Data received by database!") {
-          setTimeout(() => {
-            axios
-              .post("http://localhost:3001/api/stock-data", {
-                ticker: ticker,
-              })
-              .then((result) => {
-                const tickerData = result.data;
-                router.push(
-                  {
-                    pathname: `[${ticker}]`,
-                    // query: {  }
-                    query: {
-                      name: ticker,
-                      data: JSON.stringify(tickerData),
-                    },
-                  },
-                  `[${ticker}]`
-                );
-              });
-          }, 3000);
-          
-      /* The else covers company data that is already present, it fetches from the database
-         and routes directly to ticker page without hitting the Alpha Vantage API */
-        } else {
-          const tickerData = result.data;
-          setTimeout(() => {
-                router.push(
-                  {
-                    pathname: `[${ticker}]`,
-                    query: {
-                      name: ticker,
-                      data: JSON.stringify(tickerData),
-                    },
-                  },
-                  `[${ticker}]`
-                );
-          }, 2500)
-        }
-        toast.success("Your search is in process!");
-      })
-      .catch((err) => {
-        toast.error("Sorry! Please login first!");
-      });
+            if (result.data.message === "Data received by database!") {
+              setTimeout(() => {
+                axios
+                  .post("http://localhost:3001/api/stock-data", {
+                    ticker: ticker,
+                  })
+                  .then((result) => {
+                    const tickerData = result.data;
+                    router.push(
+                      {
+                        pathname: 'stock',
+                        query: {
+                          name: ticker,
+                          data: JSON.stringify(tickerData),
+                        },
+                      },
+                      'stock'
+                    );
+                  });
+              }, 3000);
 
-      setTicker('');
-      setTimeout(() => {
-        setOpenModal(false);
-        setClicked(false);
-      }, 18000)
+              /* The else covers company data that is already present, it fetches from the database
+         and routes directly to ticker page without hitting the Alpha Vantage API */
+            } else {
+              const tickerData = result.data;
+              setTimeout(() => {
+                router.push(
+                  {
+                    pathname: 'stock',
+                    query: {
+                      name: ticker,
+                      data: JSON.stringify(tickerData),
+                    },
+                  },
+                  'stock'
+                );
+              }, 2500);
+            }
+            toast.success("Your search is in process!");
+          })
+          .catch((err) => {
+            toast.error("Sorry! Please login first!");
+          });
+
+        setTicker("");
+        setTimeout(() => {
+          setOpenModal(false);
+          setClicked(false);
+        }, 18000);
+      }
     }
-  }   
-}, [clicked, openModal]);
+  }, [clicked, openModal]);
+  
 
   return (
     <>
@@ -136,21 +135,21 @@ export default function Navbar({ isLoggedIn }) {
                   <div className="flex-shrink-0 flex items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="h-14 w-28"
+                      className="h-14 w-28"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
-                      <a
-                        href="/home"
-                        className="fill-stone-600 hover:fill-amber-300"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
-                          clip-rule="evenodd"
-                        />
-                        <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
-                      </a>
+                      <Link href="/home">
+                        <a className="fill-stone-600 hover:fill-amber-300">
+                          {" "}
+                          <path
+                            fillRule="evenodd"
+                            d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+                            clipRule="evenodd"
+                          />
+                          <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
+                        </a>
+                      </Link>
                     </svg>
                   </div>
                 </div>
@@ -168,39 +167,49 @@ export default function Navbar({ isLoggedIn }) {
                           />
 
                           <div className="min-w-full flex justify-end">
-                            { clicked? 
+                            {clicked ? (
                               <button
                                 type="button"
                                 className=" h-9 px-3 my-5 z-50 pointer-events-auto border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                 onClick={() => setOpenModal(true)}
                               >
-                                <svg xmlns="http://www.w3.org/2000/svg" class="animate-spin h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="animate-spin h-6 w-6"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                                  />
                                 </svg>
                               </button>
-                                : 
+                            ) : (
                               <button
-                              type="button"
-                              className=" h-9 px-3 my-5 z-50 pointer-events-auto border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                              onClick={() => setClicked(true)}
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-6 w-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth={2}
+                                type="button"
+                                className=" h-9 px-3 my-5 z-50 pointer-events-auto border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                onClick={() => setClicked(true)}
                               >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                                />
-                              </svg>
-                            </button>
-                            }
-                            
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="h-6 w-6"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth={2}
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M8 16l2.879-2.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                  />
+                                </svg>
+                              </button>
+                            )}
                           </div>
                         </div>
 
@@ -235,9 +244,6 @@ export default function Navbar({ isLoggedIn }) {
               </div>
             </div>
 
-            {/* {ticker !== '' && click !== 0? (
-              <SuccessAlert />
-           ) : (<ErrorAlert />)} */}
             <Popover.Panel as="nav" className="lg:hidden" aria-label="Global">
               <div className="max-w-3xl mx-auto px-2 pt-2 pb-3 space-y-1 sm:px-4">
                 {navigation.map((item) => (

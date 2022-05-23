@@ -32,14 +32,13 @@ export default function Logos(props) {
                 const tickerData = result.data;
                 router.push(
                   {
-                    pathname: `[${ticker}]`,
-                    // query: {  }
+                    pathname: 'stock',
                     query: {
                       name: ticker,
                       data: JSON.stringify(tickerData),
                     },
                   },
-                  `[${ticker}]`
+                  'stock'
                 );
               });
           }, 3000);
@@ -52,14 +51,13 @@ export default function Logos(props) {
           setTimeout(() => {
                 router.push(
                   {
-                    pathname: `[${ticker}]`,
-                    // query: {  }
+                    pathname: 'stock',
                     query: {
                       name: ticker,
                       data: JSON.stringify(tickerData),
                     },
                   },
-                  `[${ticker}]`
+                  'stock'
                 );
           }, 1500)
         }

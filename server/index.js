@@ -7,6 +7,7 @@ const cookieSession = require('cookie-session');
 
 const app  = express();
 const PORT = process.env.SERVER_PORT;
+// process.env.NODE_ENV => production or undefined
 
 app.use(cors({origin: 'http://localhost:3000', credentials: true}));
 app.use(helmet());
