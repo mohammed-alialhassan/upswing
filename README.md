@@ -1,7 +1,7 @@
 
 ## Welcome to UpSwing! 
 
-An app that allows users to search for stock data. Our goal was to make an easy and engaging way of tracking various companies and its current/future trends. There's a lot of features that are being planned for future implementation (ex. mobile support) so expect updates! And on the behalf of our team, thank you for your support.
+An app that allows users to search for stock data. Our goal was to make an easy and engaging way of tracking various companies and its current/future trends. There's a lot of features that are being planned for future implementation (ex. mobile support and a live version on Vercel) so expect updates! And on the behalf of our team, thank you for your support.
 
 
 
@@ -48,4 +48,19 @@ https://user-images.githubusercontent.com/88508812/169675363-1f0ef3eb-4ef9-40db-
 
 ## Home Page
 
+
+https://user-images.githubusercontent.com/88508812/169901176-29c3fa79-4f9a-4db7-942f-d0c928e7bdcc.mov
+
+
+
 ## User functionality
+
+
+https://user-images.githubusercontent.com/88508812/169901417-d8bbb19e-cebf-4641-8690-c072286f0bbb.mov
+
+
+
+https://user-images.githubusercontent.com/88508812/169901617-90c8e946-1202-461b-b251-9ae583bd84e6.mov
+
+
+
