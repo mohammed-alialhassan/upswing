@@ -88,7 +88,7 @@ export default function Navbar({ isLoggedIn }) {
                 );
               }, 2500);
             }
-            toast.success("Your search is in process!");
+            toast.success("Your search is in process! Yes lord!");
           })
           .catch((err) => {
             toast.error("Sorry! Please login first!");
