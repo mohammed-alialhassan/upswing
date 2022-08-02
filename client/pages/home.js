@@ -71,7 +71,7 @@ export default function Home() {
           />
           <div className="absolute max-w-2xl inset-0 bg-slate-50 mix-blend-multiply" aria-hidden="true" />
         </div>
-        <div className="relative max-w-7xl mx-auto text-center py-24 px-96 sm:py-52 sm:px-96 lg:px-8 lg:py-28 xl:py-36 2xl:py-56">
+        <div >
         <ReactTypingEffect
         text={["Welcome  to  UpSwing"]}
         className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-6xl xl:text-7xl"
